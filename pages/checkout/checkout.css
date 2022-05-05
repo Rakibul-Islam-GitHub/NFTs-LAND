@@ -1,0 +1,69 @@
+.checkout-card{
+background-color: #eee;
+color: rgb(1, 0, 1);
+/* height:90vh !important; */
+}
+
+
+.checkout-card.border-top{
+border-color: #f37a27 !important;
+}
+
+.card-body.lead{
+color: #f37a27;
+}
+
+.total-price{
+color: #f327e9;
+width: 100%;
+font-size: 18px;
+
+}
+
+.checkout-item{
+background-color: #f2f2f2;
+}
+
+.contact-checkout{
+color: #f37a27;
+}
+
+/* 
+@media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh !important;
+    }
+    }
+    
+    .horizontal-timeline .items {
+    border-top: 2px solid #ddd;
+    }
+    
+    .horizontal-timeline .items .items-list {
+    position: relative;
+    margin-right: 0;
+    }
+    
+    .horizontal-timeline .items .items-list:before {
+    content: "";
+    position: absolute;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: #ddd;
+    top: 0;
+    margin-top: -5px;
+    }
+    
+    .horizontal-timeline .items .items-list {
+    padding-top: 15px;
+    } */
+
+
+    @media only screen and (max-width:668px){
+        .total-price {
+          
+          font-size: 17px;
+          margin-left: 40px;
+      }
+      }
