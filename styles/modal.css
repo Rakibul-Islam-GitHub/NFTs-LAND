@@ -1,0 +1,166 @@
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 999999999999; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.567); /* Black w/ opacity */
+  }
+  .proceedModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 999999999999; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.567); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    background-color: #72c8f7b8;
+    margin: auto;
+    padding: 0;
+    border: 1px solid rgb(231, 31, 201);
+    width: 45%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+    from {top:-200px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-200px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  
+  /* The Close Button */
+  .close, .proceedclose {
+    color: rgb(231, 9, 9);
+    float: right;
+    font-size: 38px;
+    margin-top: -5px;
+    font-weight: bold;
+  }
+  
+  .close:hover, .proceedclose:hover,
+  .close:focus, .proceedclose:focus {
+    color: rgb(220, 48, 246);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-header {
+    padding: 2px 16px;
+    background-color: #a1ea2ba5;
+    color: rgba(235, 9, 69, 0.789);
+
+  }
+  .modal-header-text{
+     text-align: right;
+  }
+  
+  .modal-body {padding: 3px 16px;}
+  
+  .modal-footer {
+    padding: 2px 16px;
+    background-color: #0a2f6a37;
+    color: white;
+  }
+  .modal-body p{
+      color: rgb(4, 8, 57);
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+      padding: 15px;
+  }
+
+
+  /* proceed modal */
+  .proceed-modal-footer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    border-top: 2px solid #2faaa0cc;
+    border-bottom-right-radius: calc(0.3rem - 1px);
+    border-bottom-left-radius: calc(0.3rem - -1px);
+}
+
+.proceedbtn {
+    display: inline-block;
+    line-height: 26px;
+    font-weight: 500;
+    border-radius: 5px;
+    text-align: center;
+    -webkit-transition: all 0.7s ease-in-out;
+    transition: all 0.7s ease-in-out;
+    position: relative;
+    z-index: 1;
+    border: none;
+    border-radius: 0;
+    color: #fff;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0.375rem 1.75rem;
+  }
+  .proceedbtn:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: -webkit-gradient(linear, left top, right top, from(#a146e8), color-stop(35%, #6c63d0), to(#387db8));
+    background: linear-gradient(90deg, #a146e8 0%, #6c63d0 35%, #387db8 100%);
+    z-index: -1;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .proceed-order{
+    color: #be1d9ec4;
+  }
+
+  #proceed-modal-msg{
+    color: rgb(4, 8, 57);
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+    padding: 15px;
+    padding-bottom: 0 !important;
+}
+#img-size{
+    padding-top:0;
+    font-size: 16px;
+    padding-bottom:10px;
+}
+
+.proceedModal .modal-content{
+    background-color: #72f78acf !important;
+}
+
+.proceedModal .modal-header{
+    background-color: #85e4abad;
+}
+
