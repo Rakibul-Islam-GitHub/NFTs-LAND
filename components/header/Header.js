@@ -38,8 +38,8 @@ const Header = () => {
     </Nav>
     
     <Nav>
-      {loggedInUser.email !== (null) && <Nav.Link href={'/manageslot/'+loggedInUser.email}>Manage Slot</Nav.Link>}
-      {loggedInUser.email === (null) ? 
+      {loggedInUser.email !== (null || 'null') && <Nav.Link href={'/manageslot/'+loggedInUser.email}>Manage Slot</Nav.Link>}
+      {loggedInUser.email === (null ||'null') ? 
       <Link className="nav-link" href="/login">Login</Link> 
       :
       

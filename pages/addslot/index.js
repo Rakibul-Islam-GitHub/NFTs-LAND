@@ -17,7 +17,7 @@ const AddSlot = () => {
     const slotDetails= router.query || selectedSlotinfo;
     console.log(slotDetails);
    useEffect(() =>{
-    if (localStorage.getItem("email") == null) {
+    if (localStorage.getItem("email") == (null||'null')) {
         router.push({
           pathname:'/login',
           query: router.query

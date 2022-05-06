@@ -13,7 +13,7 @@ export const userContext = createContext();
 
 function MyApp({ Component, pageProps }) {
   
-  const [loggedInUser, setLoggedInUser] = useState({});
+  const [loggedInUser, setLoggedInUser] = useState({email:null, name: null});
   const [selectedSlotinfo, setSelectedSlotinfo] = useState();
   
   useEffect(()=>{ 
