@@ -120,7 +120,7 @@ const Edit = (props) => {
 <div className="addreview col-md-12 ">
 {loading&& <Loading/>}
 <div className=" mt-2 form-center">
-<h4 className="text-center mb-3">Add new slot</h4>
+<h4 className="text-center mb-3">Update The slot</h4>
             <Form onSubmit={addReviewHandler} className="review-form ">
                 <Form.Group controlId="exampleForm.ControlInput1">
                     <Form.Label>Title</Form.Label>
