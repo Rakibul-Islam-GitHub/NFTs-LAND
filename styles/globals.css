@@ -277,6 +277,9 @@ thead{
     margin-left: 1rem;
     
 }
+.modal-content{
+  width: 75% !important;
+}
 }
 
 .web-credit{
