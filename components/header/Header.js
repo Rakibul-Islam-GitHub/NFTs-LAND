@@ -8,8 +8,11 @@ const Header = () => {
   const [loggedInUser, setloggedInUser] = useContext(userContext);
 
   useEffect(()=> {
-    setloggedInUser({ email: localStorage.getItem('email'), name: localStorage.getItem('name')})
-    console.log(loggedInUser);
+    
+    
+      setloggedInUser({ email: localStorage.getItem('email'), name: localStorage.getItem('name')})
+     
+    
   },[loggedInUser.email, setloggedInUser])
 
     return (
@@ -38,8 +41,8 @@ const Header = () => {
     </Nav>
     
     <Nav>
-      {loggedInUser.email !== (null || 'null') && <Nav.Link href={'/manageslot/'+loggedInUser.email}>Manage Slot</Nav.Link>}
-      {loggedInUser.email === (null ||'null') ? 
+      {loggedInUser.email !== (undefined||null) && <Nav.Link href={'/manageslot/'+loggedInUser.email}>Manage Slot</Nav.Link>}
+      {loggedInUser.email === (undefined||null) ? 
       <Link className="nav-link" href="/login">Login</Link> 
       :
       

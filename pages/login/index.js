@@ -24,7 +24,7 @@ const Login = () => {
  
 useEffect(() => {
 console.log(process.env.ADMIN);
-  if (localStorage.getItem("email") !== (null||'null')) {
+  if (localStorage.getItem("email") !== (undefined|| null)) {
     window.location.href ='/';
     return;
   }

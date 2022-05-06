@@ -48,7 +48,7 @@ let unitPrice=10;
 
 
 
-    if (localStorage.getItem("email") === (null||'null')) {
+    if (localStorage.getItem("email") === (undefined||null)) {
         Router.push({
           pathname:'/login',
           query:  router.query || selectedSlotinfo
