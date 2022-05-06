@@ -10,8 +10,8 @@ const Logout = () => {
   useEffect(()=>{ 
 
     localStorage.setItem("email", null);
-    localStorage.setItem("name", '');
-    setloggedInUser({email: undefined, name: undefined});
+    localStorage.setItem("name", null);
+    setloggedInUser({email: null, name: null});
   
     window.location.href='/';
    }, [])

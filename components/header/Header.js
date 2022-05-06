@@ -31,13 +31,15 @@ const Header = () => {
     <Nav className="me-auto">
       
       {/* <Nav.Link href="#pricing">Pricing</Nav.Link> */}
-      <p className="slot-price">$10 PER SLOT</p>
+      <p className="slot-price mt-3">$10 PER SLOT</p>
+      
+
       
     </Nav>
     
     <Nav>
-      {loggedInUser.email !== ('null'||undefined||null) && <Nav.Link href={'/manageslot/'+loggedInUser.email}>Manage Slot</Nav.Link>}
-      {loggedInUser.email === ('null'||undefined||null) ? 
+      {loggedInUser.email !== (null) && <Nav.Link href={'/manageslot/'+loggedInUser.email}>Manage Slot</Nav.Link>}
+      {loggedInUser.email === (null) ? 
       <Link className="nav-link" href="/login">Login</Link> 
       :
       
