@@ -187,7 +187,7 @@ let selectedSlot=[]
 window.onload = async function(){
 
   let takeslot=false;
-  for (let i = 0; i < 510; i++) {
+  for (let i = 0; i < 10010; i++) {
     const slotdiv= document.createElement('div');
   slotdiv.classList.add('slot');
   slotdiv.setAttribute('id', 'slot');

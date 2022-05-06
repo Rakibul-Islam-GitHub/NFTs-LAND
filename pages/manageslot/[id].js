@@ -35,9 +35,9 @@ const Manageslot = (props) => {
       </div>
       {loading&& <Loading/>}
 
-      <div className="container manage-slot">
+      <div className=" manage-slot">
 
-          <div className="col-sm-12 col-md-10">
+          <div className="p-2 col-sm-12 col-md-10 col-lg-8">
               <h5 className='mb-2'>Manage slot</h5>
 
 
