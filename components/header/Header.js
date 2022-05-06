@@ -1,34 +1,56 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Container, Image, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { userContext } from '../../pages/_app';
+
+import Link from 'next/link';
 
 const Header = () => {
+  const [loggedInUser, setloggedInUser] = useContext(userContext);
+
+  useEffect(()=> {
+    setloggedInUser({ email: localStorage.getItem('email'), name: localStorage.getItem('name')})
+  },[loggedInUser.email, setloggedInUser])
+
     return (
         <>
            <Navbar id="navbar_top" collapseOnSelect expand="lg" className="nav-scrolled"  variant="dark"  >
   <Container>
+  
   <Navbar.Brand href="/">
   <Image
         src="/images/N-pixel-logo.png"
-        width="70"
-        height="65"
+        width="50"
+        height="45"
         className="d-inline-block align-top me-4"
         alt="React Bootstrap logo"/>
   </Navbar.Brand>
+  
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="me-auto">
       
-      <Nav.Link href="#pricing">Pricing</Nav.Link>
+      {/* <Nav.Link href="#pricing">Pricing</Nav.Link> */}
+      <p className="slot-price">$10 PER SLOT</p>
       
     </Nav>
+    
     <Nav>
-      <Nav.Link href="#deets">Manage Slot</Nav.Link>
+      {loggedInUser.email !== ('null'||undefined||null) && <Nav.Link href={'/manageslot/'+loggedInUser.email}>Manage Slot</Nav.Link>}
+      {loggedInUser.email === ('null' || undefined||null) ? 
+      <Link className="nav-link" href="/login">Login</Link> 
+      :
+      
       <NavDropdown title="My Profile" id="collasible-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">View</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Logout</NavDropdown.Item>
+        
+        <NavDropdown.Item  href="/logout">Logout</NavDropdown.Item>
        
         
-      </NavDropdown>
+      </NavDropdown> 
+      
+        
+      
+      
+      }
     </Nav>
   </Navbar.Collapse>
   </Container>

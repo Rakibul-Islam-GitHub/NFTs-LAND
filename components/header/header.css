@@ -80,3 +80,10 @@
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
 }
+
+@media screen and (max-width: 768px){
+  .header-section{
+    /* width:1250px; */
+  }
+  
+}

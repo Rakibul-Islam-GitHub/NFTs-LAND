@@ -1,34 +1,43 @@
 
 import Header from '../../components/header/Header';
 import {  Form, Button } from "react-bootstrap";
-import axios from "axios";
 import { useRouter } from "next/router";
 import { userContext } from "../_app";
 import { useContext, useEffect, useState } from "react";
 import  Head  from "next/head";
+import Loading from '../../components/loading/Loading';
+
 
 const AddSlot = () => {
     const router = useRouter();
     const [loggedInUser] = useContext(userContext);
+    const [selectedSlotinfo] = useContext(userContext);
     const [image, setImage]= useState()
-    const slotDetails= router.query;
+    const [loading, setLoading] = useState(false);
+    const slotDetails= router.query || selectedSlotinfo;
     console.log(slotDetails);
    useEffect(() =>{
-       
+    if (localStorage.getItem("email") == null) {
+        router.push({
+          pathname:'/login',
+          query: router.query
+        })
+    }
 
-   },[])
+   },[router])
     const changeHandler = (event) => {
 		setImage(event.target.files[0]);
 		
 	};
     
-    const addReviewHandler= async (e)=> {
+    const addSlotHandler= async (e)=> {
+        setLoading(true)
         e.preventDefault();
         const title = e.target.title.value;
         const url= e.target.url.value;
         let img = '';
         
-        const owner= loggedInUser.displayName || 'admin';
+        const owner= await localStorage.getItem("email");
 
        
         const formData = new FormData();
@@ -83,22 +92,29 @@ const AddSlot = () => {
         <Head>
         <title>Add Your Slot!</title>
         <meta name="description" content="Get a NFT slot on the internet, make your presence more wider, grow your business" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
       <div className='header-section'>
         
         <Header/>
   
-    
-      
       </div>
+      {loading && <Loading/>}
         
-               
-      <div className="addreview col-md-12 ">
+      {/* <div className="">
+      <PaypalBtn></PaypalBtn>
+      </div> */}
+
+{!(router.query.top && router.query.orderID) ? 
+ <div className="alert alert-danger container d-flex justify-content-center m-5" role="alert">
+  Something went wrong...
+</div>
+:
+<div className="addreview col-md-12 ">
 
 <div className=" mt-2 form-center">
 <h4 className="text-center mb-3">Add new slot</h4>
-            <Form onSubmit={addReviewHandler} className="review-form ">
+            <Form onSubmit={addSlotHandler} className="review-form ">
                 <Form.Group controlId="exampleForm.ControlInput1">
                     <Form.Label>Title</Form.Label>
                     <Form.Control type="text" required name="title" />
@@ -119,7 +135,13 @@ const AddSlot = () => {
             </Form>
 </div>
 
-</div>    
+</div>  
+
+
+}
+
+
+      
                
         
             

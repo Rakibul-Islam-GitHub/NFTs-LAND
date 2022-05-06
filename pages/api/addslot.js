@@ -6,10 +6,10 @@ function handler(req, res) {
         // const reviewCollection= dbobj.collection('reviews');
         
         const {title, url, img,  owner, slotdetails} = req.body
-        console.log(title);
+        
         if(title && url && img && owner) {
 
-            console.log('from api', img);
+            
 
             client.connect(async err => {
                 const collection = client.db("nft-slot").collection("orders");
@@ -18,7 +18,7 @@ function handler(req, res) {
                 
                 if(result){
                     client.close();
-                    console.log(result)
+                    
                     res.status(200).json({success: true, status:200});
                 }else{
                     console.log(err);

@@ -52,7 +52,7 @@ const Manageslot = (props) => {
                     
                   </thead>
                   <tbody>
-                    {orders.length===0 && <p>Not found</p> }
+                    {/* {orders.length===0 && <p>Not found</p> } */}
                     {orders.map(order =>{
                         return(
                             <tr key={order._id}>

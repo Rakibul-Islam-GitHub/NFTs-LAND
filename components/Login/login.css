@@ -179,6 +179,20 @@ a {
     flex-direction: column;
     align-items: center;
   }
+
+  .login-page{
+    margin-top:-20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+  .main-container__content {
+    
+    display: flex;
+    justify-content: center;
+}
  
   
 }

@@ -12,19 +12,23 @@ const Login = () => {
   const router = useRouter();
  
   const [loggedInUser, setloggedInUser] = useContext(userContext);
-  const [loading, setLoading]= useState(false)
+  const [loading, setLoading]= useState(true)
 
   const [isNewUser, setUser] = useState(false);
   const [isError, setIsError] = useState({
     emailError: false,
     password: false,
   });
+
+  const admin= process.env.ADMIN;
  
 useEffect(() => {
-
+console.log(process.env.ADMIN);
   if (localStorage.getItem("email") !== 'null'|| undefined||null) {
-    window.location.href ='/'
+    window.location.href ='/';
+    return;
   }
+  setLoading(false)
 
 }, [])
   
@@ -60,9 +64,9 @@ useEffect(() => {
             localStorage.setItem("email", email);
             localStorage.setItem("name", displayName);
 
-            if (router.query.title && router.query.top) {
+            if (router.query.top) {
               router.push({
-                  pathname:'/addslot',
+                  pathname:'/checkout',
                   query: router.query
               });
             }else{window.location.href ='/';}
@@ -90,20 +94,27 @@ useEffect(() => {
         if(res.status===200){
           document.getElementById("loginForm").reset();
           
-          setloggedInUser({ email, displayName: res.data.displayName})
+          {email==='thenftslandofficial@gmail.com' ? setloggedInUser({ email, displayName: res.data.displayName, isAdmin:true}) : 
+          setloggedInUser({ email, displayName: res.data.displayName})}
           localStorage.setItem("email", email);
           localStorage.setItem("name", res.data.displayName);
-          console.log(router.query);
-          if (router.query.title && router.query.top) {
+          
+          if (router.query.top) {
+            {email==='thenftslandofficial@gmail.com' ? 
             router.push({
-                pathname:'/addslot',
-                query: router.query
-            });
+              pathname:'/addslot',
+              query: {...router.query, orderID:'admin'}
+          })   :
+          router.push({
+            pathname:'/checkout',
+            query: router.query
+        })}
+
           }else{
             window.location.href ='/'
             // setLoading(false)
           }
-        //   setLoading(false)
+          // setLoading(false)
         }
         
     } catch (error) {
@@ -167,7 +178,7 @@ useEffect(() => {
             </form>
 
             <div>
-              <p>
+              <p className="text-center">
               Or You Can...
                 <button className="btn-login" onClick={handleNewUser} type="button" >
               {isNewUser ? ` Sign In` : ` Sign Up`}
