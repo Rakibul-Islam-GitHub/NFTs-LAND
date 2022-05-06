@@ -209,9 +209,9 @@ label.form-label {
 .paypal-buttons{
   
 }
-.paypal-buttons:nth-child(-n+1) {
+/* .paypal-buttons:nth-child(-n+1) {
   display: none !important; 
-}
+} */
 
 /* manageslot */
 .manage-slot{
