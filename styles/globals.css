@@ -32,8 +32,8 @@ a:hover, a:focus{
   -ms-overflow-style: none; 
   scrollbar-width: none;
   
-  min-width: 1250px;
-  display:flex;
+  /* min-width: 1250px;
+  display:flex; */
   justify-content: center;
     align-items: flex-start; 
     /* flex-shrink: 0;
@@ -108,11 +108,12 @@ a:hover, a:focus{
 
 .notice {
   position: absolute;
-  top: 130px;
+  top: 55px;
   font-size: 20px;
   font-weight: 600;
   font-family: monospace;
   min-width: 801px;
+  font-size: 18px;
 }
 
 
@@ -264,11 +265,18 @@ thead{
 
 @media (max-width: 768px){
   footer{
-    width:1250px !important;
+    
   }
   .notice{
-    top: 130px;
+    top: 55px;
+    min-width: 420px;
+    font-size: 14px;
   }
+  .navbar-brand {
+    
+    margin-left: 1rem;
+    
+}
 }
 
 .web-credit{

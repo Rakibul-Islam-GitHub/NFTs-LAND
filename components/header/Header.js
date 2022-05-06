@@ -9,6 +9,7 @@ const Header = () => {
 
   useEffect(()=> {
     setloggedInUser({ email: localStorage.getItem('email'), name: localStorage.getItem('name')})
+    console.log(loggedInUser);
   },[loggedInUser.email, setloggedInUser])
 
     return (
@@ -36,7 +37,7 @@ const Header = () => {
     
     <Nav>
       {loggedInUser.email !== ('null'||undefined||null) && <Nav.Link href={'/manageslot/'+loggedInUser.email}>Manage Slot</Nav.Link>}
-      {loggedInUser.email === ('null' || undefined||null) ? 
+      {loggedInUser.email === ('null'||undefined||null) ? 
       <Link className="nav-link" href="/login">Login</Link> 
       :
       

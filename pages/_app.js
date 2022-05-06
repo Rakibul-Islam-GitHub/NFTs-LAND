@@ -18,9 +18,9 @@ function MyApp({ Component, pageProps }) {
   
   useEffect(()=>{ 
  
-   const email = localStorage.getItem("email");
-   const name = localStorage.getItem("name");
-   setLoggedInUser({email: email, displayName: name});
+  //  const email = localStorage.getItem("email");
+  //  const name = localStorage.getItem("name");
+  //  setLoggedInUser({email: email, displayName: name});
  
  
   }, [])

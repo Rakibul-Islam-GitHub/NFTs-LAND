@@ -65,11 +65,8 @@ export default function Home(props) {
 
       
   
-      <div className=" home-main-body">
-      <p className="notice">Double click on any blank space after selecting your desire slot(s)</p>
-
-      
-
+      <div className="pt-5 home-main-body">
+      <p className="notice"></p>
 
       {/* invalid slot selection modal */}
    <div id="myModal" className="modal">
@@ -114,7 +111,8 @@ export default function Home(props) {
         
           <div id='slot-wrapper' className="slot-wrapper mb-5">
 
-          
+          <p className="notice">Double click on any blank space after selecting your desire slot(s)</p>
+
           
        {slots.map( (slot)=> {
          return(
