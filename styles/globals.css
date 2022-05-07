@@ -280,6 +280,13 @@ thead{
 .modal-content{
   width: 75% !important;
 }
+.main-container__content {
+ 
+  width: 85%;
+  border-radius: 12px;
+}
+
+
 }
 
 .web-credit{
