@@ -99,7 +99,10 @@ const getImageHightWidth= (slotNumber, orientation) =>{
   let width=slotSize;
   if (orientation === 'row') {
     const hight= slotSize;
-    if (slotLen <= 2) {
+    if (slotLen < 2) {
+      width= (slotNumber.length * 20) ;
+    }
+    else if (slotLen == 2) {
       width= (slotNumber.length * 22) ;
     }else{
       width= (slotNumber.length * 24) -margin*2;
@@ -111,9 +114,12 @@ const getImageHightWidth= (slotNumber, orientation) =>{
     
     const totalRow= (Math.ceil((slotNumber[slotLen-1]/slotsPerRow)) - Math.ceil((slotNumber[0]/slotsPerRow)) + 1);
     const slotPerRow= slotNumber.length / totalRow;
-    if (slotPerRow <=2) {
-       width= (slotPerRow * 22);
-    }else{
+    if (slotPerRow <2) {
+       width= (slotPerRow * 20);
+    }
+    else if (slotPerRow ==2) {
+      width= (slotPerRow * 22);
+   }else{
       width= (slotPerRow * 24) - margin*2;
     }
     if (totalRow <= 2) {
