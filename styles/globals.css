@@ -1,9 +1,10 @@
+@import url('http://fonts.cdnfonts.com/css/minecraft-3');
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Minecraft', sans-serif;
+                                                
     /* -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: #05050512; */
     color: aliceblue;
@@ -25,10 +26,10 @@ a:hover, a:focus{
 .home-main-body{
   min-height:1100px;
  overflow-x: scroll;
-  background-image: url("/images/main-section.png");
-  object-fit: contain;
-  background-image: linear-gradient(to bottom, rgb(12 1 27), #00101b, #002f3d, #003d3c, #034934);
+
+  
   padding-left: 25px;
+  background-color: #ebecf0;
   -ms-overflow-style: none; 
   scrollbar-width: none;
   
@@ -74,12 +75,54 @@ a:hover, a:focus{
 .slot:nth-child(even) {
   background: rgb(117, 37, 166);
 }
-
-.footer{
-  color: rgb(222, 133, 238);
-  padding: 20px 0 20px 0;
-  background:#00101b;
+li{
+  list-style: none;
 }
+
+/* footer styles */
+.footer{
+  color: #ffffff;
+  padding: 30px 0 20px 0;
+  background:#503ac6;
+  font-size: 12px;
+}
+.footer-left {
+  display: flex;
+  
+  justify-content: space-around;
+}
+.footer-left li a, .footer-right li a{
+  font-size: 14px !important;
+}
+.icon{
+  font-size: 20px;
+}
+.footer-middle{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 10px;
+}
+.footer-right{
+  text-align: center;
+}
+@media screen and (max-width: 768px){
+
+  .footer-left {
+   
+    justify-content: space-evenly;
+  }
+  .footer-middle{
+    justify-content: space-evenly;
+  align-items: center;
+  padding: 30px 80px;
+  }
+  .footer-right{
+    text-align: center;
+  }
+}
+
 /* .slot-wrapper img{
   position: absolute;
   height:30px;
@@ -111,7 +154,7 @@ a:hover, a:focus{
   top: 55px;
   font-size: 20px;
   font-weight: 600;
-  font-family: monospace;
+  color: #00101b;
   min-width: 801px;
   font-size: 18px;
 }

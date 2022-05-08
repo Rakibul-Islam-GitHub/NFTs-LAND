@@ -1,4 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
+import { config } from '@fortawesome/fontawesome-svg-core'
+    import '@fortawesome/fontawesome-svg-core/styles.css'
+    config.autoAddCss = false
 import SSRProvider from 'react-bootstrap/SSRProvider';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../components/header/header.css'
@@ -6,6 +9,7 @@ import '../styles/globals.css'
 import '../styles/modal.css'
 import '../components/Login/login.css'
 import './checkout/checkout.css'
+
 
 
 

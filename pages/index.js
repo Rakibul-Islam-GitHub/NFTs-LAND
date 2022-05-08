@@ -6,6 +6,7 @@ import Header from '../components/header/Header'
 import { Router, useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
 import { userContext } from './_app'
+import Footer from '../components/footer/Footer';
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
 
@@ -145,13 +146,16 @@ export default function Home(props) {
      
       
 
-      <footer className='footer flex-column d-flex align-items-center justify-content-center'>
+      {/* <footer className='footer flex-column d-flex align-items-center justify-content-center'>
        <p className='m-0 d-flex align-items-center'>&copy;All right reserved 2022</p>
        
        <p className='m-0 d-flex align-items-center'>  <Link className=' web-credit' href='https://github.com/Rakibul-Islam-GitHub'>Design & Developed by Rakibul </Link> </p>
-      </footer>
+      </footer> */}
 
       
+      <footer className='container-fluid'>
+        <Footer/>
+      </footer>
 
 
 
