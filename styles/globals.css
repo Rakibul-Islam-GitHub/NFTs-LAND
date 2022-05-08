@@ -1,17 +1,21 @@
-@import url('http://fonts.cdnfonts.com/css/minecraft-3');
+/* @import url('http://fonts.cdnfonts.com/css/minecraft-3'); */
+@font-face {
+  font-family: 'Minecraft';
+  src: url('/font/Minecraft.ttf');
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Minecraft', sans-serif;
-                                                
+  font-family: 'Minecraft';
     /* -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: #05050512; */
     color: aliceblue;
 }
 
 a {
-  color: inherit;
+  color: white;
   text-decoration: none;
   font-size: 18px;
 }

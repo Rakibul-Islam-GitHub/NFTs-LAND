@@ -50,6 +50,8 @@ export default function Home(props) {
         <title>Book Your Slot!</title>
         <meta name="description" content="Get a NFT slot on the internet, make your presence more wider, grow your business" />
         <link rel="icon" href="/favicon.png" />
+        <link href="http://fonts.cdnfonts.com/css/minecraft-3" rel="stylesheet"/>
+                
       </Head>
       <Script src="/js/script.js" ></Script>
       
