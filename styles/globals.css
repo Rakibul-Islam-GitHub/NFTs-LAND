@@ -226,7 +226,7 @@ label.form-label {
 
 .hover-div{
   position: absolute;
-  height:220px;
+  height:250px;
   width: 250px;
   /* top: 166px;
   left:102px; */
@@ -235,7 +235,7 @@ label.form-label {
   padding: 15px;
   font-size: 16px;
   z-index: 9999999999999;
-  display:none;
+  /* display:none; */
   border: 1px solid rgb(230, 216, 228);
   border-radius:5px;
   transition: all 0.8 ease;
@@ -260,6 +260,13 @@ p.slot-num {
   margin: 0;
   padding: 0;
   font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  overflow:scroll;
+ 
+}
+.hover-div img{
+  object-fit:contain;
 }
 
 .paypal-buttons{
