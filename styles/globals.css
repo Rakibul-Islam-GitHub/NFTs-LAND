@@ -33,6 +33,7 @@ a:hover, a:focus{
 
   
   padding-left: 25px;
+  padding-right: 25px;
   background-color: #ebecf0;
   -ms-overflow-style: none; 
   scrollbar-width: none;
@@ -62,19 +63,19 @@ a:hover, a:focus{
   /* flex-shrink: 0; */
   align-items: center;
   padding-top:100px;
-  width: 1200px;
+  width: 2400px;
   position: relative;
  
   
 }
 .slot{
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
   background-color: rgb(189, 90, 232);
   cursor: pointer;
   margin:2px;
   flex-shrink: 0;
-  cursor:url('/images/mouse-pointer.png'), auto;
+  /* cursor:url('/images/mouse-pointer.png'), auto; */
 }
 .slot:nth-child(even) {
   background: rgb(117, 37, 166);
@@ -160,6 +161,7 @@ li{
   color: #00101b;
   min-width: 801px;
   font-size: 18px;
+  letter-spacing:1px;
 }
 
 

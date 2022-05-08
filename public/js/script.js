@@ -21,8 +21,8 @@
 
 // ******   modal instance & variables *****////
 let selectedSlot=[]
-let slotsPerRow= 35;
-let slotSize=30;
+let slotsPerRow= 100;
+let slotSize=20;
 let marginBetweenSlot=2;
 let margin=marginBetweenSlot;
 let marginTop=100;
@@ -84,11 +84,11 @@ const validColumnStyle=(slotNumber)=>{
 const getCoordinates= (slotNumber) =>{
   let left;
   if (Math.ceil(slotNumber[0]/slotsPerRow)===1) {
-     left= ((slotNumber[0] -1 ) *34) +margin;
+     left= ((slotNumber[0] -1 ) *24) +margin;
   }else{ 
-     left= (( (slotNumber[0] - ((Math.ceil(slotNumber[0]/slotsPerRow)-1)*slotsPerRow))-1 ) *34) +margin;
+     left= (( (slotNumber[0] - ((Math.ceil(slotNumber[0]/slotsPerRow)-1)*slotsPerRow))-1 ) *24) +margin;
   }
-  const top= ((Math.ceil(slotNumber[0]/slotsPerRow) -1) * 34 ) +marginTop+ margin;
+  const top= ((Math.ceil(slotNumber[0]/slotsPerRow) -1) * 24 ) +marginTop+ margin;
   return { left, top };
 
 }
@@ -100,9 +100,9 @@ const getImageHightWidth= (slotNumber, orientation) =>{
   if (orientation === 'row') {
     const hight= slotSize;
     if (slotLen <= 2) {
-      width= (slotNumber.length * 32) -margin;
+      width= (slotNumber.length * 22) ;
     }else{
-      width= (slotNumber.length * 34) -margin*2;
+      width= (slotNumber.length * 24) -margin*2;
     }
     return { hight, width };
   }
@@ -112,14 +112,14 @@ const getImageHightWidth= (slotNumber, orientation) =>{
     const totalRow= (Math.ceil((slotNumber[slotLen-1]/slotsPerRow)) - Math.ceil((slotNumber[0]/slotsPerRow)) + 1);
     const slotPerRow= slotNumber.length / totalRow;
     if (slotPerRow <=2) {
-       width= (slotPerRow * 32);
+       width= (slotPerRow * 22);
     }else{
-      width= (slotPerRow * 34) - margin*2;
+      width= (slotPerRow * 24) - margin*2;
     }
     if (totalRow <= 2) {
        hight= (totalRow*margin) + (totalRow * slotSize);
     }else{
-       hight= (totalRow * 34) - margin*2;
+       hight= (totalRow * 24) - margin*2;
 
     }
     return { hight, width}
@@ -192,7 +192,7 @@ const getSlotInfo=(data) => {
 window.onload = async function(){
 
   let takeslot=false;
-  for (let i = 0; i < 10010; i++) {
+  for (let i = 0; i < 10000; i++) {
     const slotdiv= document.createElement('div');
   slotdiv.classList.add('slot');
   slotdiv.setAttribute('id', 'slot');
