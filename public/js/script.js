@@ -145,7 +145,7 @@ const getSlotInfo=(data) => {
       document.getElementsByClassName('proceedbtn')[0].setAttribute('slot', uniqueSlotNumber);
       
       
-      document.getElementById('proceed-modal-msg').innerText=`You Have Selected ${uniqueSlotNumber.length} slots`;
+      document.getElementById('proceed-modal-msg').innerText=`You Have Selected ${uniqueSlotNumber.length} slots (${uniqueSlotNumber})`;
       document.getElementById('img-size').innerText=`Your Image size should be- 'Hight:${imageSize.hight}px & width:${imageSize.width}px' for optimistic view!`;
       proceedModal.style.display = 'block';
 
@@ -169,7 +169,7 @@ const getSlotInfo=(data) => {
        document.getElementsByClassName('proceedbtn')[0].setAttribute('slot', uniqueSlotNumber);
        
        
-       document.getElementById('proceed-modal-msg').innerText=`You Have Selected ${uniqueSlotNumber.length} slots`;
+       document.getElementById('proceed-modal-msg').innerText=`You Have Selected ${uniqueSlotNumber.length} slots (${uniqueSlotNumber})`;
        document.getElementById('img-size').innerText=`Your Image size should be- 'Hight:${imageSize.hight}px & width:${imageSize.width}px' for optimistic view!`;
        proceedModal.style.display = 'block';
     }else{
@@ -183,6 +183,8 @@ const getSlotInfo=(data) => {
 }
 
 let selectedSlot=[]
+let slotsPerRow= 35;
+let slotSize=30;
 
 window.onload = async function(){
 
