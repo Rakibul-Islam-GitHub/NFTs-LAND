@@ -226,7 +226,7 @@ label.form-label {
 
 .hover-div{
   position: absolute;
-  height:250px;
+  height:260px;
   width: 250px;
   /* top: 166px;
   left:102px; */
@@ -243,6 +243,8 @@ label.form-label {
 .slot-url a{
   color: #d7381c;
   font-size:16px;
+  letter-spacing: 1px;
+
 }
 .slot-url a:hover{
   color: #021013;
@@ -250,6 +252,7 @@ label.form-label {
 .slot-title{
   margin-top:5px;
   font-size: 16px;
+  overflow-x: scroll;
 }
 
 .slot-img:hover > .hover-div{
@@ -262,7 +265,7 @@ p.slot-num {
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 1px;
-  overflow:scroll;
+  overflow-x:scroll;
  
 }
 .hover-div img{
