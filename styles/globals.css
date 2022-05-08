@@ -156,12 +156,12 @@ li{
 .notice {
   position: absolute;
   top: 55px;
-  font-size: 20px;
-  font-weight: 600;
+  font-weight: 800;
   color: #00101b;
   min-width: 801px;
   font-size: 18px;
 }
+
 
 
 .review-card{
@@ -224,7 +224,7 @@ label.form-label {
 
 .hover-div{
   position: absolute;
-  height:210px;
+  height:220px;
   width: 250px;
   /* top: 166px;
   left:102px; */
@@ -240,17 +240,24 @@ label.form-label {
 }
 .slot-url a{
   color: #d7381c;
+  font-size:16px;
 }
 .slot-url a:hover{
   color: #021013;
 }
 .slot-title{
-  margin-top:2px;
+  margin-top:5px;
+  font-size: 16px;
 }
 
 .slot-img:hover > .hover-div{
   display: block;
   transition: all 0.8 ease;
+}
+p.slot-num {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
 }
 
 .paypal-buttons{

@@ -19,7 +19,13 @@
 // const slots= document.getElementById('slot-wrapper').childNodes;
 // console.log(slots);
 
-// ******   modal instance *****////
+// ******   modal instance & variables *****////
+let selectedSlot=[]
+let slotsPerRow= 35;
+let slotSize=30;
+let marginBetweenSlot=2;
+let margin=marginBetweenSlot;
+let marginTop=100;
 const modal = document.getElementById("myModal");
 const proceedModal = document.getElementById("proceedModal");
 const modalSpan = document.getElementsByClassName("close")[0];
@@ -28,7 +34,7 @@ const proceedSpan = document.getElementsByClassName("proceedclose")[0];
 
 
 
-// ///////////////*****check if the every element is equal in the array ********///////////
+// ///////////////*****check if  every element is equal in the array ********///////////
 function isRow(_array)
 {
    if(typeof _array !== 'undefined')    
@@ -58,12 +64,12 @@ const validColumnStyle=(slotNumber)=>{
   const lowest= Number(uniqueSlotNumber[0]);
   const highest= Number(uniqueSlotNumber[uniqueSlotNumber.length-1]);
   
-  let rowpos1= Math.ceil(lowest/35);
-  let rowpos2= Math.ceil(highest/35);
+  let rowpos1= Math.ceil(lowest/slotsPerRow);
+  let rowpos2= Math.ceil(highest/slotsPerRow);
   let rowDifference= (rowpos2 - rowpos1);
   const totalRow= (rowpos2 - rowpos1) +1;
   let slotPerRow= uniqueSlotNumber.length*1 / totalRow;
-  const LHS= (rowDifference *35 + lowest) + (slotPerRow-1);
+  const LHS= (rowDifference *slotsPerRow + lowest) + (slotPerRow-1);
 
   if (LHS === highest) {
     
@@ -73,17 +79,16 @@ const validColumnStyle=(slotNumber)=>{
 
 }
 
-let margin=2;
-let marginTop=100;
+
 //////// *****  getting coordinates of x & y by list of slotnumbers array*****  ////////
 const getCoordinates= (slotNumber) =>{
   let left;
-  if (Math.ceil(slotNumber[0]/35)===1) {
+  if (Math.ceil(slotNumber[0]/slotsPerRow)===1) {
      left= ((slotNumber[0] -1 ) *34) +margin;
   }else{ 
-     left= (( (slotNumber[0] - ((Math.ceil(slotNumber[0]/35)-1)*35))-1 ) *34) +margin;
+     left= (( (slotNumber[0] - ((Math.ceil(slotNumber[0]/slotsPerRow)-1)*slotsPerRow))-1 ) *34) +margin;
   }
-  const top= ((Math.ceil(slotNumber[0]/35) -1) * 34 ) +marginTop+ margin;
+  const top= ((Math.ceil(slotNumber[0]/slotsPerRow) -1) * 34 ) +marginTop+ margin;
   return { left, top };
 
 }
@@ -91,9 +96,9 @@ const getCoordinates= (slotNumber) =>{
 /////// ****** getting image height & width by list of slotnumbers array*******/////////
 const getImageHightWidth= (slotNumber, orientation) =>{
   const slotLen= slotNumber.length;
-  let width=30;
+  let width=slotSize;
   if (orientation === 'row') {
-    const hight= 30;
+    const hight= slotSize;
     if (slotLen <= 2) {
       width= (slotNumber.length * 32) -margin;
     }else{
@@ -102,9 +107,9 @@ const getImageHightWidth= (slotNumber, orientation) =>{
     return { hight, width };
   }
   else if(orientation === 'column') {
-    let hight=30;
+    let hight=slotSize;
     
-    const totalRow= (Math.ceil((slotNumber[slotLen-1]/35)) - Math.ceil((slotNumber[0]/35)) + 1);
+    const totalRow= (Math.ceil((slotNumber[slotLen-1]/slotsPerRow)) - Math.ceil((slotNumber[0]/slotsPerRow)) + 1);
     const slotPerRow= slotNumber.length / totalRow;
     if (slotPerRow <=2) {
        width= (slotPerRow * 32);
@@ -112,7 +117,7 @@ const getImageHightWidth= (slotNumber, orientation) =>{
       width= (slotPerRow * 34) - margin*2;
     }
     if (totalRow <= 2) {
-       hight= (totalRow*margin) + (totalRow * 30);
+       hight= (totalRow*margin) + (totalRow * slotSize);
     }else{
        hight= (totalRow * 34) - margin*2;
 
@@ -182,9 +187,7 @@ const getSlotInfo=(data) => {
   
 }
 
-let selectedSlot=[]
-let slotsPerRow= 35;
-let slotSize=30;
+
 
 window.onload = async function(){
 
