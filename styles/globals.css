@@ -235,7 +235,7 @@ label.form-label {
   padding: 15px;
   font-size: 16px;
   z-index: 9999999999999;
-  /* display:none; */
+  display:none;
   border: 1px solid rgb(230, 216, 228);
   border-radius:5px;
   transition: all 0.8 ease;
