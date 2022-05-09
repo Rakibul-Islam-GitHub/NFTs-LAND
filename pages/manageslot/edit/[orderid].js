@@ -7,6 +7,7 @@ import  Head  from "next/head";
 import Header from "../../../components/header/Header";
 import { userContext } from "../../_app";
 const { MongoClient, ServerApiVersion } = require('mongodb');
+import { ObjectId } from "mongodb";
 
 
 const Edit = (props) => {
@@ -56,7 +57,7 @@ const Edit = (props) => {
         headers: {
             'Content-Type': 'application/json',
           },
-        body: JSON.stringify({title, url, img, id:order.slotdetails.orderID})}).then(res => res.json()).then(data => {
+        body: JSON.stringify({title, url, img, id:order._id})}).then(res => res.json()).then(data => {
             if (data.success) {
                 e.target.image.value='';
                 e.target.url.value= '';
@@ -82,7 +83,7 @@ const Edit = (props) => {
             headers: {
                 'Content-Type': 'application/json',
               },
-            body: JSON.stringify({title, img:order.img, url, id:order.slotdetails.orderID})}).then(res => res.json()).then(data => {
+            body: JSON.stringify({title, img:order.img, url, id:order._id})}).then(res => res.json()).then(data => {
                 if (data.success) {
                     
                     e.target.url.value= '';
@@ -161,7 +162,7 @@ export async function getServerSideProps(context){
     const orderCollection = db.collection("orders");
 
    
-        const orderbyid = await orderCollection.findOne({"slotdetails.orderID": id});
+        const orderbyid = await orderCollection.findOne({"_id": ObjectId(id)});
   
     client.close();
 

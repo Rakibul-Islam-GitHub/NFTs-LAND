@@ -52,7 +52,7 @@ const Manageslot = (props) => {
                     
                   </thead>
                   <tbody>
-                    {/* {orders.length===0 && <p>Not found</p> } */}
+                    
                     {orders.map(order =>{
                         return(
                             <tr key={order._id}>
@@ -60,14 +60,17 @@ const Manageslot = (props) => {
                       <td> <img className="coinicon-lq" src={order.img} width="50px" height="50px" alt="slot-img" />  </td>
                       <td>{order.title}</td>
                       <td>{order.url}</td>
-                      <td> <Link onClick={()=> setLoading(true)} href={'/manageslot/edit/'+order.slotdetails.orderID}>Edit</Link> </td>
+                      <td> <Link onClick={()=> setLoading(true)} href={'/manageslot/edit/'+order._id}>Edit</Link> </td>
                       
                     </tr>
                         )
                     })}
+
+
                    
                   </tbody>
                 </table>
+                {orders.length===0 && <span className="ms-2">You do not have any slot!</span> }
 
 
 
@@ -86,18 +89,23 @@ export async function getServerSideProps(context){
     const db = client.db();
     const orderCollection = db.collection("orders");
 
-   
-        // const userid= localStorage.getItem("email");
-        const orderbyid = await orderCollection.find({owner:id}).toArray();
-  
-    client.close();
-
-    return {
-        props: {
-          ordersbyid: JSON.stringify(orderbyid)
-        },
+   let orderbyid;
         
-      }
+        if (id==='thenftslandofficial@gmail.com') {
+             orderbyid = await orderCollection.find().toArray();
+        } else {
+             orderbyid = await orderCollection.find({owner:id}).toArray();
+        }
+        
+  
+        client.close();
+
+        return {
+            props: {
+              ordersbyid: JSON.stringify(orderbyid)
+            },
+            
+          }
    
   }
 

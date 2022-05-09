@@ -1,5 +1,5 @@
 import {client} from '../../database/dbConnect';
-
+import { ObjectId } from "mongodb";
 function handler(req, res) {
     
     if (req.method === 'POST') {
@@ -13,7 +13,7 @@ function handler(req, res) {
             client.connect(async err => {
                 const collection = client.db("nft-slot").collection("orders");
                 
-                const result= await collection.updateOne({"slotdetails.orderID": id}, {$set:{title: title, url: url, img: img}});
+                const result= await collection.updateOne({"_id": ObjectId(id)}, {$set:{title: title, url: url, img: img}});
                 
                 if(result){
                     client.close();
