@@ -201,10 +201,16 @@ let unitPrice=10;
                   const getData= await res.json();
                   
                   if (getData.success) {
-                    router.push({
+                   
+                  await setTimeout(function() {
+                   alert('Payment successful! You will be now redirect for adding slot details. please do not leave the page')
+                  }, 2000);
+                    await router.push({
                       pathname:'/addslot',
                       query: {...router.query, orderID: data.orderID}
                     })
+                  }else{
+                    alert('Problem with payment! try again later..')
                   }
 
 

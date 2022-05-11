@@ -30,7 +30,7 @@ a:hover, a:focus{
 .home-main-body{
   min-height:1100px;
  overflow-x: scroll;
-
+ 
   
   padding-left: 25px;
   padding-right: 25px;
@@ -65,8 +65,6 @@ a:hover, a:focus{
   padding-top:100px;
   width: 2400px;
   position: relative;
- 
-  
 }
 .slot{
   height: 20px;
@@ -250,10 +248,13 @@ label.form-label {
   color: #021013;
 }
 .slot-title{
-  margin-top:5px;
+  margin-top:15px;
   font-size: 16px;
   overflow-x: scroll;
+  scrollbar-width: none;
+  margin-bottom: 0;
 }
+
 
 .slot-img:hover > .hover-div{
   display: block;
@@ -268,6 +269,15 @@ p.slot-num {
   overflow-x:scroll;
  
 }
+/* .slot-num::-webkit-scrollbar {
+  height: 15px;
+  color: rgba(248, 23, 248, 0.208);
+}
+.slot-title::-webkit-scrollbar {
+  height: 15px;
+  color: rgba(248, 23, 248, 0.345);
+} */
+
 .hover-div img{
   object-fit:contain;
 }
@@ -330,9 +340,7 @@ thead{
 
 
 @media (max-width: 768px){
-  footer{
-    
-  }
+  
   .notice{
     top: 55px;
     min-width: 420px;
@@ -359,3 +367,9 @@ td a{
   color: #e32fe9;
   
 }
+
+
+/* div{
+  width: 100%;
+} */
+
