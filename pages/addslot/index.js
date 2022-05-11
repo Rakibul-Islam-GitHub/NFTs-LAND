@@ -66,10 +66,13 @@ const AddSlot = () => {
           },
         body: JSON.stringify({title, url, img,  owner, slotdetails:slotDetails})}).then(res => res.json()).then(data => {
             if (data.success) {
+                alert('Your slot has been allocated! You will be redirected to homepage now!')
                 e.target.image.value='';
                 e.target.url.value= '';
                 e.target.title.value= '';
                 window.location='/';
+            }else{
+                alert('Something went wrong! please contact us for further assistance')
             }
 
 
