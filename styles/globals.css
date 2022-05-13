@@ -349,7 +349,12 @@ thead{
 .header-section {
   min-width: 550px;
 }
-
+footer{
+  width: 768px !important;
+      
+     float: left;
+    
+}
   .notice{
     top: 55px;
     min-width: 420px;
@@ -378,7 +383,11 @@ td a{
 }
 
 
-/* div{
-  width: 100%;
-} */
-
+@media (max-width: 576px){
+  footer{
+    width: 576px !important;
+        
+       float: left;
+      
+  }
+}
