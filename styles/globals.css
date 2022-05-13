@@ -374,6 +374,13 @@ footer{
   border-radius: 12px;
 }
 
+.navbar .container{
+  justify-content: flex-start;
+}
+.navbar-toggler{
+  padding-left: 200px;
+}
+
 
 }
 
