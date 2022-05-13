@@ -8,7 +8,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  width: 100%;
+ 
   
   font-family: 'Minecraft';
     /* -webkit-text-size-adjust: 100%;
@@ -24,6 +24,12 @@ a {
 a:hover, a:focus{
   color: rgb(240, 106, 238);
 }
+.navbar-dark .navbar-nav .nav-link {
+  font-weight: 500;
+  font-size: 18px;
+  color: rgb(240, 109, 208);
+}
+
 
 * {
   box-sizing: border-box;
@@ -42,18 +48,11 @@ a:hover, a:focus{
   display:flex;
   justify-content: center;
     align-items: flex-start; 
-    /* flex-shrink: 0;
-    flex-grow: 0;
-    flex-basis: 0; */
+    
     
 }
 .home-main-body::-webkit-scrollbar {
   display: none;
-}
-.navbar-dark .navbar-nav .nav-link {
-  font-weight: 500;
-  font-size: 18px;
-  color: rgb(240, 109, 208);
 }
 
 /* slot box */
@@ -342,10 +341,11 @@ thead{
 
 
 @media (max-width: 768px){
-  .home-main-body {
-    min-width: 1250px;
-}
 
+  .home-main-body {
+    display: block !important;
+}
+  /*
 .header-section {
   min-width: 550px;
 }
@@ -354,7 +354,10 @@ footer{
       
      float: left;
     
-}
+} */
+/* .navbar-toggler{
+  margin-left: 200px;
+} */
   .notice{
     top: 55px;
     min-width: 420px;
@@ -374,13 +377,6 @@ footer{
   border-radius: 12px;
 }
 
-.navbar .container{
-  justify-content: flex-start;
-}
-.navbar-toggler{
-  margin-left: 200px;
-}
-
 
 }
 
@@ -391,10 +387,10 @@ td a{
 
 
 @media (max-width: 576px){
-  footer{
+  /* footer{
     width: 576px !important;
         
        float: left;
       
-  }
+  } */
 }
