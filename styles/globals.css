@@ -343,7 +343,7 @@ thead{
 
 @media (max-width: 768px){
   body {
-    min-width: 550px;
+    min-width: 1250px;
 }
 
 .header-section {
