@@ -342,7 +342,7 @@ thead{
 
 
 @media (max-width: 768px){
-  body {
+  .home-main-body {
     min-width: 1250px;
 }
 
