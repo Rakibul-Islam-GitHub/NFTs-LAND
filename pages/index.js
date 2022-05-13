@@ -70,8 +70,45 @@ export default function Home(props) {
       
   
       <div className="pt-5 home-main-body">
-      <p className="notice"></p>
+      {/* <p className="notice"></p> */}
 
+        
+          <div id='slot-wrapper' className="slot-wrapper mb-5">
+
+          <p className="notice">Double click on any blank space after selecting your desire slot(s)</p>
+
+          
+       {slots.map( (slot)=> {
+         return(
+           <>
+           <div key={slot._id.toString()} className="slot-img">
+           <div className="hover-div" style={{top:slot.slotdetails.top-100+'px', left:(slot.slotdetails.left-80)+'px'}}>
+             <p className="slot-num">Slot No. {slot.slotdetails.slot}</p>
+             <img src={slot.img} alt={slot.title} style={{maxHeight:'110px', width:'210px' }} />
+         <h5 className="slot-title">{slot.title}</h5>
+         <p className="slot-url">Link: <a href={slot.url}>Click Here</a> </p>
+       </div>
+
+       <img key={slot._id.toString()} className='slotimg' src={slot.img} height={slot.slotdetails.hight} width={slot.slotdetails.width} alt="slot-image" 
+           style={{position: 'absolute', top: slot.slotdetails.top+'px', left: slot.slotdetails.left+'px', objectFit:'fill', height:slot.slotdetails.hight+'px', width:slot.slotdetails.width+'px'}}
+           />
+           </div>
+           </>
+          
+
+         )
+      })}
+
+     
+        
+        
+          </div>
+
+
+      </div>
+      
+     
+      
       {/* invalid slot selection modal */}
    <div id="myModal" className="modal">
    <div className="modal-content">
@@ -112,43 +149,6 @@ export default function Home(props) {
   </div>
    </div>
    {/* modal end */}
-        
-          <div id='slot-wrapper' className="slot-wrapper mb-5">
-
-          <p className="notice">Double click on any blank space after selecting your desire slot(s)</p>
-
-          
-       {slots.map( (slot)=> {
-         return(
-           <>
-           <div key={slot._id.toString()} className="slot-img">
-           <div className="hover-div" style={{top:slot.slotdetails.top-100+'px', left:(slot.slotdetails.left-80)+'px'}}>
-             <p className="slot-num">Slot No. {slot.slotdetails.slot}</p>
-             <img src={slot.img} alt={slot.title} style={{maxHeight:'110px', width:'210px' }} />
-         <h5 className="slot-title">{slot.title}</h5>
-         <p className="slot-url">Link: <a href={slot.url}>Click Here</a> </p>
-       </div>
-
-       <img key={slot._id.toString()} className='slotimg' src={slot.img} height={slot.slotdetails.hight} width={slot.slotdetails.width} alt="slot-image" 
-           style={{position: 'absolute', top: slot.slotdetails.top+'px', left: slot.slotdetails.left+'px', objectFit:'fill', height:slot.slotdetails.hight+'px', width:slot.slotdetails.width+'px'}}
-           />
-           </div>
-           </>
-          
-
-         )
-      })}
-
-     
-        
-        
-          </div>
-
-
-      </div>
-      
-     
-      
 
       {/* <footer className='footer flex-column d-flex align-items-center justify-content-center'>
        <p className='m-0 d-flex align-items-center'>&copy;All right reserved 2022</p>

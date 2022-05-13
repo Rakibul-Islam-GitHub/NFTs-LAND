@@ -9,7 +9,7 @@ import '../styles/globals.css'
 import '../styles/modal.css'
 import '../components/Login/login.css'
 import './checkout/checkout.css'
-
+import './signin/signin.css'
 
 
 

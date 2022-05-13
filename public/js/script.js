@@ -21,7 +21,7 @@
 
 // ******   modal instance & variables *****////
 let selectedSlot=[]
-let slotsPerRow= 100;
+let slotsPerRow= 50;
 let slotSize=20;
 let marginBetweenSlot=2;
 let margin=marginBetweenSlot;

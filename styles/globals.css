@@ -30,16 +30,14 @@ a:hover, a:focus{
 .home-main-body{
   min-height:1100px;
  overflow-x: scroll;
- 
-  
   padding-left: 25px;
   padding-right: 25px;
   background-color: #ebecf0;
   -ms-overflow-style: none; 
   scrollbar-width: none;
   
-  /* min-width: 1250px;
-  display:flex; */
+  /* min-width: 1250px; */
+  display:flex;
   justify-content: center;
     align-items: flex-start; 
     /* flex-shrink: 0;
@@ -57,26 +55,28 @@ a:hover, a:focus{
 }
 
 /* slot box */
-.slot-wrapper{
+.slot-wrapper {
   display: flex;
   flex-wrap: wrap;
-  /* flex-shrink: 0; */
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: 1200px;
   align-items: center;
-  padding-top:100px;
-  width: 2400px;
+  padding-top: 100px;
+  width: 1200px;
   position: relative;
 }
 .slot{
   height: 20px;
   width: 20px;
-  background-color: rgb(189, 90, 232);
+  background-color: rgba(206, 118, 199, 0.874);
   cursor: pointer;
   margin:2px;
   flex-shrink: 0;
   /* cursor:url('/images/mouse-pointer.png'), auto; */
 }
 .slot:nth-child(even) {
-  background: rgb(117, 37, 166);
+  background: rgba(198, 36, 213, 0.836);
 }
 li{
   list-style: none;

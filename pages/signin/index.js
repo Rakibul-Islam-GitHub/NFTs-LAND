@@ -6,7 +6,7 @@ import { userContext } from "../_app";
 import Loading from "../../components/loading/Loading";
 import Head  from "next/head";
 
-const Login = () => {
+const Signin = () => {
     const router = useRouter();
  
     const [loggedInUser, setloggedInUser] = useContext(userContext);
@@ -197,4 +197,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Signin;
