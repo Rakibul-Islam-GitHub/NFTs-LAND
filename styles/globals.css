@@ -36,7 +36,7 @@ a:hover, a:focus{
   -ms-overflow-style: none; 
   scrollbar-width: none;
   
-  /* min-width: 1250px; */
+  min-width: 1250px;
   display:flex;
   justify-content: center;
     align-items: flex-start; 
