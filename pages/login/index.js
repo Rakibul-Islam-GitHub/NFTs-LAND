@@ -140,14 +140,14 @@ const Login = () => {
       {isNewUser&& <div className="form-group mt-3 pb-3">
         <input type="text" className="form-control p-2" name='name' required placeholder="Full Name.." />
       </div>}
-      <div className="form-group mt-3 pb-3">
+      <div className={isNewUser? 'form-group pb-3': 'form-group mt-3 pb-3'}>
         <input type="email" className="form-control p-2" name='email' required placeholder="Email Address.." />
       </div>
       <div className="form-group pb-3">
         <input id="password-field" type="password" className="form-control p-2" name='password' required placeholder="Password.." />
       </div>
       <div className="form-group pt-1">
-        <button type="submit" className="form-control btn-submit">Login</button>
+        <button type="submit" className="form-control btn-submit text-white fw-bold">{isNewUser? 'Signup' : 'Login'}</button>
       </div>
     </form>
     {isNewUser ? 

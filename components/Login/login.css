@@ -2,13 +2,12 @@
 
 .login-parent {
 	display: flex;
-  height: 44em;
+  height: 90vh;
   justify-content: center;
   align-items: center;
   font-family: 'Inter', sans-serif;
   margin: auto;
-  overflow: hidden;
-  overflow-y: hidden;
+ 
   background:linear-gradient(to right, rgb(140, 135, 141), rgb(127, 123, 125))
 }
 .form-child{
