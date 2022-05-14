@@ -23,9 +23,10 @@
 let selectedSlot=[]
 let slotsPerRow= 50;
 let slotSize=20;
-let marginBetweenSlot=2;
+let marginBetweenSlot=0;
 let margin=marginBetweenSlot;
 let marginTop=100;
+let marginleft=100;
 const modal = document.getElementById("myModal");
 const proceedModal = document.getElementById("proceedModal");
 const modalSpan = document.getElementsByClassName("close")[0];
@@ -84,11 +85,11 @@ const validColumnStyle=(slotNumber)=>{
 const getCoordinates= (slotNumber) =>{
   let left;
   if (Math.ceil(slotNumber[0]/slotsPerRow)===1) {
-     left= ((slotNumber[0] -1 ) *24) +margin;
+     left= ((slotNumber[0] -1 ) *20) +marginleft;
   }else{ 
-     left= (( (slotNumber[0] - ((Math.ceil(slotNumber[0]/slotsPerRow)-1)*slotsPerRow))-1 ) *24) +margin;
+     left= (( (slotNumber[0] - ((Math.ceil(slotNumber[0]/slotsPerRow)-1)*slotsPerRow))-1 ) *20) +marginleft;
   }
-  const top= ((Math.ceil(slotNumber[0]/slotsPerRow) -1) * 24 ) +marginTop+ margin;
+  const top= ((Math.ceil(slotNumber[0]/slotsPerRow) -1) * 20 ) +marginTop+ margin;
   return { left, top };
 
 }
@@ -103,9 +104,9 @@ const getImageHightWidth= (slotNumber, orientation) =>{
       width= (slotNumber.length * 20) ;
     }
     else if (slotLen == 2) {
-      width= (slotNumber.length * 22) ;
+      width= (slotNumber.length * slotSize) ;
     }else{
-      width= (slotNumber.length * 24) -margin*2;
+      width= (slotNumber.length * slotSize);
     }
     return { hight, width };
   }
@@ -115,17 +116,17 @@ const getImageHightWidth= (slotNumber, orientation) =>{
     const totalRow= (Math.ceil((slotNumber[slotLen-1]/slotsPerRow)) - Math.ceil((slotNumber[0]/slotsPerRow)) + 1);
     const slotPerRow= slotNumber.length / totalRow;
     if (slotPerRow <2) {
-       width= (slotPerRow * 20);
+       width= (slotPerRow * slotSize);
     }
     else if (slotPerRow ==2) {
-      width= (slotPerRow * 22);
+      width= (slotPerRow * slotSize);
    }else{
-      width= (slotPerRow * 24) - margin*2;
+      width= (slotPerRow * slotSize) - margin*2;
     }
     if (totalRow <= 2) {
        hight= (totalRow*margin) + (totalRow * slotSize);
     }else{
-       hight= (totalRow * 24) - margin*2;
+       hight= (totalRow * slotSize) - margin*2;
 
     }
     return { hight, width}
@@ -198,23 +199,22 @@ const getSlotInfo=(data) => {
 window.onload = async function(){
 
   let takeslot=false;
-  for (let i = 0; i < 10000; i++) {
-    const slotdiv= document.createElement('div');
+  for (let i = 0; i < 200; i++) {
+    const slotrow= document.createElement("div");
+    slotrow.classList.add('slot-row');
+    for (let j = 1; j <= 50; j++) {
+      const slot = i*50+j;
+
+      const slotdiv=await document.createElement('div');
   slotdiv.classList.add('slot');
+  // slotdiv.classList.add('darkslot');
   slotdiv.setAttribute('id', 'slot');
-  slotdiv.setAttribute('slot', i+1);
-  await document.getElementById('slot-wrapper').appendChild(slotdiv);
+  slotdiv.setAttribute('slot', slot);
+await slotrow.appendChild(slotdiv);
+  await document.getElementById('slot-wrapper').appendChild(slotrow);
 
-  // slotdiv.addEventListener('mouseenter', (e) =>{
-  //   if(!takeslot) return;
-  //   console.log('mouseover',e.target);
-  //   slotdiv.style.backgroundColor='orange';
-  // })
 
-  // slotdiv.addEventListener('mousedown', (e) =>{
-  //   console.log('mousedown',e.target);
-  // })
-
+  
   slotdiv.addEventListener('dblclick', async (e) =>{
     takeslot = false;
     await selectedSlot.pop();
@@ -239,11 +239,30 @@ window.onload = async function(){
     selectedSlot.push(e.target);
     
   })
+      
+    }  // inner loop end
+    
+
+
+
+    
+
+  // slotdiv.addEventListener('mouseenter', (e) =>{
+  //   if(!takeslot) return;
+  //   console.log('mouseover',e.target);
+  //   slotdiv.style.backgroundColor='orange';
+  // })
+
+  // slotdiv.addEventListener('mousedown', (e) =>{
+  //   console.log('mousedown',e.target);
+  // })
+
 
   
 
   }
   
+  //1st loop end
   
   
   window.addEventListener('dblclick', () =>{
