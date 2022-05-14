@@ -66,13 +66,37 @@ a:hover, a:focus{
   padding-top: 100px;
   width: 1200px;
   position: relative;
+  justify-content:center;
 }
+.slot-row {
+  display: flex;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.slot-row .slot:nth-of-type(even) {
+  background-color: rgba(202, 102, 194, 0.925);
+}
+
+.slot-row .slot:nth-of-type(odd) {
+  background-color: rgba(170, 13, 185, 0.836);
+}
+
+.slot-row:nth-of-type(even)
+ .slot:nth-of-type(even) {
+   background-color: rgba(170, 13, 185, 0.836);
+ }
+
+.slot-row:nth-of-type(even)
+ .slot:nth-of-type(odd) {
+   background-color: rgba(202, 102, 194, 0.925);
+ }
 .slot{
   height: 20px;
   width: 20px;
   background-color: rgba(206, 118, 199, 0.874);
   cursor: pointer;
-  margin:2px;
+  margin:0px;
   flex-shrink: 0;
   /* cursor:url('/images/mouse-pointer.png'), auto; */
 }
@@ -394,3 +418,4 @@ td a{
       
   } */
 }
+

@@ -127,69 +127,33 @@ const Login = () => {
         <>
         <Header/>
         {loading && <Loading/>}
-       <div className="container register">
-  <div className="row">
-    <div className="col-md-3 register-left">
-      <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt='movingplane' />
-      <h3>Welcome</h3>
-      <p>Get a NFT slot on the internet, make your presence more wider, grow your business</p>
-      
-    </div>
-    <div className="col-md-9 register-right">
-      <ul className="nav nav-tabs nav-justified" id="myTab" role="tablist">
-        <li className="nav-item">
-          <a onClick={handleNewUser} className={ !isNewUser? 'active nav-link': "nav-link"} id="home-tab"   role="tab" aria-controls="home" aria-selected="true">Login</a>
-        </li>
-        <li className="nav-item">
-          <a onClick={handleNewUser} className={ isNewUser? 'active nav-link': "nav-link"}  id="profile-tab"   role="tab" aria-controls="profile" aria-selected="false">Register</a>
-        </li>
-      </ul>
-      <div className="tab-content" id="myTabContent">
-        <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-          <h3 className="register-heading">{isNewUser? 'Create New Account!' : 'Login Here!'}</h3>
-          <div className="row register-form">
-            <div className="col-md-7 ">
-              
-              <form onSubmit={handleSignup} id="loginForm">
-                  {isNewUser&& 
-                  <div className="form-group">
-                <input type="text" className="form-control" name="name" placeholder="Name"  />
-              </div>}
-              <div className="form-group">
-                <input type="email" className="form-control" name="email" placeholder="email"  />
-              </div>
-              <div className="form-group">
-                <input type="password" className="form-control" name="password" placeholder="Password"  />
-              </div>
-              
-              <input type="submit" className="btnRegister"  />
-            
-              </form>
-            </div>
-            
-          </div>
-        </div>
-        {/* <div className="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-          <h3 className="register-heading">Create New Account!</h3>
-          <div className="row register-form">
-            <div className="col-md-7">
+       
 
-              <div className="form-group">
-                <input type="text" className="form-control" placeholder="Name" defaultValue />
-              </div>
-              
-              <div className="form-group">
-                <input type="email" className="form-control" placeholder="Email" defaultValue />
-              </div>
-              <div className="form-group">
-                <input type="password" className="form-control" placeholder="Password" defaultValue />
-              </div>
-            </div>
-            
-          </div>
-        </div> */}
-      </div>
+        <div className="login-parent row">
+  <div className="form-child rounded col-10 col-sm-8 col-md-6 col-lg-4 col-xl-3 ">
+    <h2 className="text-center fw-bolder pt-3 pb-3">Login Form</h2>
+    <div className="btn-parent pt-2 pb-2">
+      <button onClick={handleNewUser} type="submit" className={!isNewUser ?'form-btn fw-bold active': 'form-btn fw-bold'}>Login</button>
+      <button onClick={handleNewUser} type="submit" className={isNewUser ? 'form-btn fw-bold active': 'form-btn fw-bold'}>Sign up</button>
     </div>
+    <form onSubmit={handleSignup} id="loginForm" className="signin-form">
+      {isNewUser&& <div className="form-group mt-3 pb-3">
+        <input type="text" className="form-control p-2" name='name' required placeholder="Full Name.." />
+      </div>}
+      <div className="form-group mt-3 pb-3">
+        <input type="email" className="form-control p-2" name='email' required placeholder="Email Address.." />
+      </div>
+      <div className="form-group pb-3">
+        <input id="password-field" type="password" className="form-control p-2" name='password' required placeholder="Password.." />
+      </div>
+      <div className="form-group pt-1">
+        <button type="submit" className="form-control btn-submit">Login</button>
+      </div>
+    </form>
+    {isNewUser ? 
+    <p className="text-center pt-3">Allready Have registered? <a onClick={handleNewUser} className="signup-text cursor-pointer">Signin</a></p>
+  :
+  <p className="text-center pt-3">Not a member? <a onClick={handleNewUser} className="signup-text cursor-pointer">Signup</a></p>}
   </div>
 </div>
 
