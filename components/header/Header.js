@@ -43,6 +43,8 @@ const Header = () => {
     <Nav>
     {(loggedInUser.email === 'thenftslandofficial@gmail.com') && <Nav.Link href={'/allorders/'}>All Orders</Nav.Link>}
       {loggedInUser.email !== (undefined||null) && <Nav.Link href={'/manageslot/'+loggedInUser.email}>Manage Slot</Nav.Link>}
+
+      {(loggedInUser.email === 'thenftslandofficial@gmail.com') && <Nav.Link href={'/manageuser/'}>Manage Users</Nav.Link>}
       {loggedInUser.email === (undefined||null) ? 
       <Link className="nav-link" href="/login">Login</Link> 
       :
