@@ -7,19 +7,43 @@ import Loading from '../../components/loading/Loading';
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
 const Manageslot = (props) => {
-    const orders= JSON.parse(props.ordersbyid);
+    const allorders= JSON.parse(props.ordersbyid);
     const [loading, setLoading] = useState(false)
+    const [orders, setOrders] = useState(allorders)
     const router = useRouter();
 
+    const deleteSlot=async (e,slotid)=>{
+        setLoading(true)
+        e.preventDefault();
+
+        try {
+            await fetch('/api/deleteslot', {
+                method:"post",
+                headers: {
+                    'Content-Type': 'application/json',
+                  },
+                body: JSON.stringify({id:slotid})}).then(res => res.json()).then(data => {
+                    if (data.success) {
+                        window.location.href =`/manageslot/${localStorage.getItem("email")}`
+                    //    setLoading(false)
+
+                       
+                    }else{alert('Error occured')}
+                })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     useEffect( () =>{
-        console.log(orders);
+        // console.log(orders);
         if (localStorage.getItem("email") === ('null'|| 'undefined' || undefined || null)) {
             router.push('/login')
             return;
         }
         const getOdersbyid= async (id) => {
             const res= await axios.get('/api/orderbyid/', { params: { id: id } })
-            console.log(res.data);
+            // console.log(res.data);
         }
         // getOdersbyid('admin');
     setLoading(false)
@@ -60,7 +84,11 @@ const Manageslot = (props) => {
                       <td> <img className="coinicon-lq" src={order.img} width="50px" height="50px" alt="slot-img" />  </td>
                       <td>{order.title}</td>
                       <td>{order.url}</td>
-                      <td> <Link onClick={()=> setLoading(true)} href={'/manageslot/edit/'+order._id}>Edit</Link> </td>
+                      <td> <Link onClick={()=> setLoading(true)} href={'/manageslot/edit/'+order._id}>Edit</Link> 
+                       <span className="ms-2 " onClick={(e)=> deleteSlot(e,order._id)}><Link   href='#'>Delete</Link> </span>
+                      </td>
+
+                      
                       
                     </tr>
                         )
