@@ -8,7 +8,7 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 
 const Manageslot = (props) => {
     const allorders= JSON.parse(props.ordersbyid);
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
     const [orders, setOrders] = useState(allorders)
     const router = useRouter();
 
@@ -37,7 +37,7 @@ const Manageslot = (props) => {
 
     useEffect( () =>{
         // console.log(orders);
-        if (localStorage.getItem("email") === ('null'|| 'undefined' || undefined || null)) {
+        if (localStorage.getItem("email") === ( undefined || null)) {
             router.push('/login')
             return;
         }

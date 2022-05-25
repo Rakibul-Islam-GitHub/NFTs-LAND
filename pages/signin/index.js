@@ -151,7 +151,7 @@ const Signin = () => {
       </div>
     </form>
     {isNewUser ? 
-    <p className="text-center pt-3">Allready Have registered? <a onClick={handleNewUser} className="signup-text cursor-pointer">Signin</a></p>
+    <p className="text-center pt-3">Already registered? <a onClick={handleNewUser} className="signup-text cursor-pointer">Signin</a></p>
   :
   <p className="text-center pt-3">Not a member? <a onClick={handleNewUser} className="signup-text cursor-pointer">Signup</a></p>}
   </div>

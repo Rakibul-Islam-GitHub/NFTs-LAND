@@ -78,7 +78,7 @@ export default function Home(props) {
       <span className="close">&times;</span>
     </div>
     <div className="modal-body">
-      <p id='modal-msg'>Your selected row(s) is invalid. Please select adjucent row/column.</p>
+      <p id='modal-msg'>Your selected slot(s) are invalid. Please select adjacent row/column.</p>
       
     </div>
     <div className="modal-footer">
