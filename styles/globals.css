@@ -409,6 +409,19 @@ td a{
   
 }
 
+.navbar-nav a {
+  color: rgb(240, 109, 208) !important;
+}
+.navbar-nav{
+  padding: 0 13px;
+}
+.navbar-toggler{
+  color: rgb(8, 7, 8) !important;
+  background: #0b0b0b;
+}
+.navbar-toggler-icon{
+  background-color: #00101b;
+}
 
 @media (max-width: 576px){
   /* footer{

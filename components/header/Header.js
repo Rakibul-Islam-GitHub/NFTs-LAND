@@ -63,7 +63,7 @@ const Header = () => {
      
 
       {loggedInUser.email === (undefined||null) ? 
-      <Link className="nav-link" href="/login">Login</Link> 
+      <Nav.Link className="nav-link" style={{color: 'black'}} href="/login">Login</Nav.Link> 
       
       :
       
