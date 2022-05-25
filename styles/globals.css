@@ -22,7 +22,7 @@ a {
   font-size: 18px;
 }
 a:hover, a:focus{
-  color: rgb(240, 106, 238);
+  color: rgb(240, 106, 238) !important;
 }
 .navbar-dark .navbar-nav .nav-link {
   font-weight: 500;
