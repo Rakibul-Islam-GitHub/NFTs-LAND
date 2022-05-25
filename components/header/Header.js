@@ -31,10 +31,12 @@ const Header = () => {
   
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
-    <Nav className="me-auto">
+    <Nav className="me-auto header-left">
       
       {/* <Nav.Link href="#pricing">Pricing</Nav.Link> */}
-      <p className="slot-price mt-3">$10 PER SLOT</p>
+      <a className="slot-price mt-2">$10 PER SLOT</a>
+      <a className="slot-price cursor-pointer mt-2">About</a>
+      <a className="slot-price cursor-pointer mt-2">FAQ</a>
       
 
       
@@ -42,11 +44,27 @@ const Header = () => {
     
     <Nav>
     {(loggedInUser.email === 'thenftslandofficial@gmail.com') && <Nav.Link href={'/allorders/'}>All Orders</Nav.Link>}
-      {loggedInUser.email !== (undefined||null) && <Nav.Link href={'/manageslot/'+loggedInUser.email}>Manage Slot</Nav.Link>}
+
+    {(loggedInUser.email === 'thenftslandofficial@gmail.com') ?
+    <NavDropdown title="Admin Panel" id="collasible-nav-dropdown">
+        
+        {loggedInUser.email !== (undefined||null) && <Nav.Link href={'/manageslot/'+loggedInUser.email}>Manage Slot</Nav.Link>}
 
       {(loggedInUser.email === 'thenftslandofficial@gmail.com') && <Nav.Link href={'/manageuser/'}>Manage Users</Nav.Link>}
+       
+        
+    </NavDropdown>  :
+
+     loggedInUser.email !== (undefined||null) && <Nav.Link href={'/manageslot/'+loggedInUser.email}>Manage Slot</Nav.Link>
+
+    }
+
+
+     
+
       {loggedInUser.email === (undefined||null) ? 
       <Link className="nav-link" href="/login">Login</Link> 
+      
       :
       
       <NavDropdown title="My Profile" id="collasible-nav-dropdown">
