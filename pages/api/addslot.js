@@ -19,7 +19,7 @@ function handler(req, res) {
                 if(result){
                     client.close();
                     
-                    res.status(200).json({success: true, status:200});
+                    res.status(200).json({success: true, status:200, id: result.insertedId});
                 }else{
                     console.log(err);
                     res.status(500).json({success: false});

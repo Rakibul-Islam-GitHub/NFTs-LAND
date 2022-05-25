@@ -59,12 +59,12 @@ const AddSlot = () => {
     if (data.url) {
         img= data.url;
         console.log(img);
-       await fetch('/api/addslot', {
+       await fetch('/api/editslot', {
         method:"post",
         headers: {
             'Content-Type': 'application/json',
           },
-        body: JSON.stringify({title, url, img,  owner, slotdetails:slotDetails})}).then(res => res.json()).then(data => {
+        body: JSON.stringify({title,  img,url,  id:router.query.id})}).then(res => res.json()).then(data => {
             if (data.success) {
                 alert('Your slot has been allocated! You will be redirected to homepage now!')
                 e.target.image.value='';

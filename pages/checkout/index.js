@@ -16,6 +16,7 @@ const [selectedSlotinfo, setSelectedSlotinfo] = useContext(userContext);
 const [isSlotSelected, setIsSlotSelected]= useState(false);
 const [isScriptLoaded, setIsScriptLoaded] = useState(false);
 const [loading, setLoading]= useState(true);
+const slotDetails= router.query || selectedSlotinfo;
 
 let unitPrice=10;
 
@@ -180,7 +181,7 @@ let unitPrice=10;
                 amount={router.query.slot.split(",").length*unitPrice}
                 shippingPreference="NO_SHIPPING"
                 onSuccess={async (details, data) => {
-                  
+                  let orderidafterpayment= data.orderID
                   setLoading(true);
                   const res= await fetch("/api/payment", {
                     method: "post",
@@ -201,14 +202,30 @@ let unitPrice=10;
                   const getData= await res.json();
                   
                   if (getData.success) {
-                   
-                  await setTimeout(function() {
-                   alert('Payment successful! You will be now redirect for adding slot details. please do not leave the page')
-                  }, 2000);
-                    await router.push({
-                      pathname:'/addslot',
-                      query: {...router.query, orderID: data.orderID}
+                    // adding empty slot
+                    await fetch('/api/addslot', {
+                      method:"post",
+                      headers: {
+                          'Content-Type': 'application/json',
+                        },
+                      body: JSON.stringify({title:'blank', url:'blank', img:`http://via.placeholder.com/${slotDetails.width}x${slotDetails.hight}`,  owner:localStorage.getItem("email") || loggedInUser.email, slotdetails:slotDetails})}).then(res => res.json()).then(data => {
+                        if (data.success) {
+                           setTimeout(function() {
+                            alert('Payment successful! You will be now redirect for adding slot details. please do not leave the page')
+                           }, 2000);
+                              router.push({
+                               pathname:'/addslot',
+                               query: {...router.query, orderID: orderidafterpayment, id:data.id}
+                             })
+                        }else{
+                            alert('Something went wrong! please contact us for further assistance')
+                        }
+            
+            
+                        
                     })
+                   
+                  
                   }else{
                     alert('Problem with payment! try again later..')
                   }
