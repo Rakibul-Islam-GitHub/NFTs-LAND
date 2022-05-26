@@ -15,13 +15,23 @@ const ManageUser = (props) => {
     const router = useRouter();
 
     const [show, setShow] = useState(false);
+    const [addmodalshow, setAddmodalshow] = useState(false);
     const [name, setName]= useState('');
+    const [email, setEmail]= useState('');
+    const [password, setPassword]= useState('');
     const [userid, setUserid] = useState('')
-  const handleClose = () => setShow(false);
+  const handleClose = () => {setShow(false);
+    setAddmodalshow(false);
+  }
   const handleShow = (name, id) => {
       setName(name)
       setUserid(id)
       setShow(true);
+}
+const handleaddmodalshow = () => {
+  
+  
+  setAddmodalshow(true);
 }
 
 const  handleEditName= async (id)=>{
@@ -45,6 +55,33 @@ await fetch('/api/edituser', {
 
 }
 
+
+const handleadduser=async () => {
+  try {
+    
+    setLoading(true);
+    setAddmodalshow(false);
+    const res = await axios.post('/api/userRegistration', {email, password, displayName:name});
+    
+    if(res.status===200){
+      setAddmodalshow(false)
+    //  alert('New user added successfully')
+     setAddmodalshow(false);
+    //  setLoading(false)
+     window.location=`/manageuser`
+      return;
+      
+    }
+    
+} catch (error) {
+  
+    console.log(error);
+    setLoading(false)
+    alert('something went wrong');
+
+    
+}
+}
 
 
     const deleteUser=async (e,userid)=>{
@@ -94,8 +131,11 @@ await fetch('/api/edituser', {
       <div className=" manage-slot">
 
           <div className="p-2 col-sm-12 col-md-10 col-lg-8">
-              <h5 className='mb-2'>Manage Users</h5>
+             <div className="user-table-header d-flex justify-content-between mb-4">
+             <h5 className='mb-2'>Manage Users</h5>
+              <button onClick={handleaddmodalshow} className='float-right me-2'>Add new user</button>
 
+             </div>
 
               <table className="table table-striped">
                   <thead >
@@ -136,31 +176,7 @@ await fetch('/api/edituser', {
                   </tbody>
                 </table>
 
-{/* modal for edit */}
-{/* <div className="modal5 fade" id="loginModal" tabIndex='-1' role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div className="modal-dialog modal-dialog-centered" role="document">
-    <div className="modal-content">
-      <div className="modal-header border-bottom-0">
-        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div className="modal-body">
-        <div className="form-title text-center">
-          <h4>Login</h4>
-        </div>
-        <div className="d-flex flex-column text-center">
-          <form>
-            <div className="form-group">
-              <input type="email" className="form-control" id="email1" placeholder="Your email address..." />
-            </div>
-            <button type="button" className="btn btn-info btn-block btn-round">Login</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> */}
+{/* modal for edit name */}
 
 <Modal className='user-modal' show={show} onHide={handleClose} size="md"
       aria-labelledby="contained-modal-title-vcenter">
@@ -168,7 +184,7 @@ await fetch('/api/edituser', {
           <Modal.Title>Edit Name</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <label htmlFor="uname"><b>Name</b></label>
+        <label htmlFor="uname"><b className='text-black'>Name</b></label>
     <input type="text" value={name} placeholder="Enter name" onChange={(e) => setName(e.target.value)} name="uname" required/>
             
             </Modal.Body>
@@ -178,6 +194,39 @@ await fetch('/api/edituser', {
           </Button> */}
           <Button variant="primary" onClick={()=>handleEditName()}>
             Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* modal for adding new user */}
+      <Modal className='adduser-modal' show={addmodalshow} onHide={handleClose} size="lg"
+      aria-labelledby="contained-modal-title-vcenter">
+        <Modal.Header closeButton>
+          <Modal.Title>Add a new user</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+       <div className='d-flex justify-content-start mb-3'>
+       {/* <label htmlFor="uname"><b className='text-black col-6'>Name</b></label> */}
+    <input type="text" value={name} placeholder="enter name" onChange={(e) => setName(e.target.value)} name="uname" required/>
+           
+         </div> 
+    <div className='d-flex justify-content-start mb-3'>
+    {/* <label htmlFor="uemail"><b className='text-black'>Email</b></label> */}
+    <input type="text" value={email} placeholder="enter email" onChange={(e) => setEmail(e.target.value)} name="email" required/>
+            
+    </div>
+    <div className='d-flex justify-content-start mb-2'>
+    {/* <label htmlFor="upass"><b className='text-black'>Password</b></label> */}
+    <input type="text" value={password} placeholder="enter password" onChange={(e) => setPassword(e.target.value)} name="password" required/>
+            
+    </div>
+            </Modal.Body>
+        <Modal.Footer>
+          {/* <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button> */}
+          <Button variant="primary" onClick={()=>handleadduser()}>
+            Submit
           </Button>
         </Modal.Footer>
       </Modal>

@@ -165,7 +165,7 @@
 }
 
 
-/* user modal */
+/* user edit modal */
 .user-modal .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -221,4 +221,72 @@
 }
 .user-modal input{
   margin-left: 10px;
+}
+
+
+/* user add modal */
+
+.adduser-modal .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 999999999999; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.567); /* Black w/ opacity */
+}
+
+.adduser-modal .modal-content {
+  position: relative;
+  background-color: #ffffff;
+  margin: auto;
+  padding: 0;
+  border: 1px solid rgb(10, 7, 9);
+  width: 55%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+
+.adduser-modal .modal-header {
+  padding: 2px 16px;
+  background-color: #ffffffb8;
+  color: rgba(19, 16, 17, 0.789);
+
+}
+.adduser-modal .modal-header-text{
+   text-align: right;
+}
+
+.adduser-modal .modal-body {padding: 30px 16px;}
+
+.adduser-modal .modal-footer {
+  padding: 2px 16px;
+  background-color: #0a2f6a37;
+  color: white;
+  justify-content: flex-start;
+}
+.adduser-modal .modal-body p{
+    color: rgb(4, 8, 57);
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    padding: 15px;
+}
+.adduser-modal input{
+  margin-left: 10px;
+}
+
+.user-table-header button.float-right {
+  background: #4f39c6;
+  color: #f7f7f7;
+  border-radius: 15px;
+  border: none;
 }
