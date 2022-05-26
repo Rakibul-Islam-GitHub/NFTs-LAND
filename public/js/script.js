@@ -199,7 +199,7 @@ const getSlotInfo=(data) => {
 window.onload = async function(){
 
   let takeslot=false;
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 101; i++) {
     const slotrow= document.createElement("div");
     slotrow.classList.add('slot-row');
     for (let j = 1; j <= 69; j++) {
