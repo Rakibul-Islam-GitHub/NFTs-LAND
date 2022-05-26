@@ -122,13 +122,19 @@ setEmail('thenftslandofficial@gmail.com')
       <p id='proceed-modal-msg'> </p>
       <p id='img-size'></p>
     </div>
-    <div className='text-center user-assign'>
-    <p className="text-center pt-3">{assignuser? `Don't want to assign?` :'Assign to another user?'} <a onClick={handleAssign} className="signup-text cursor-pointer">click here</a></p>
-    {assignuser && <Form.Group className='mb-2' controlId="exampleForm.ControlInput1">
-                    {/* <Form.Label>User Email</Form.Label> */}
-                    <Form.Control onChange={(e) =>setEmail(e.target.value)} type="text" required placeholder="enter user email.."  name="email" />
-                </Form.Group>}
-    </div>
+
+{loggedInUser.email==='thenftslandofficial@gmail.com' &&
+ <div className='text-center user-assign'>
+ <p className="text-center pt-3">{assignuser? `Don't want to assign?` :'Assign to another user?'} <a onClick={handleAssign} className="signup-text cursor-pointer">click here</a></p>
+ {assignuser && <Form.Group className='mb-2' controlId="exampleForm.ControlInput1">
+                 {/* <Form.Label>User Email</Form.Label> */}
+                 <Form.Control onChange={(e) =>setEmail(e.target.value)} type="text" required placeholder="enter user email.."  name="email" />
+             </Form.Group>}
+ </div>
+}
+   
+
+
     <div className="proceed-modal-footer">
     
      
