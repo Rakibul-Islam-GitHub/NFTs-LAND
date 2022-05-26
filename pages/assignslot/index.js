@@ -15,8 +15,7 @@ const AddSlot = () => {
     const [image, setImage]= useState()
     const [loading, setLoading] = useState(false);
     const slotDetails= router.query || selectedSlotinfo;
-    console.log(slotDetails);
-
+   
    useEffect(() =>{
     if (localStorage.getItem("email") == (null||'null')) {
         router.push({
@@ -38,7 +37,7 @@ const AddSlot = () => {
         const url= e.target.url.value;
         let img = '';
         
-        const owner= await localStorage.getItem("email");
+       slotDetails.addedby='admin'
 
        
         const formData = new FormData();
@@ -60,14 +59,14 @@ const AddSlot = () => {
     if (data.url) {
         img= data.url;
         console.log(img);
-       await fetch('/api/editslot', {
+       await fetch('/api/addslot', {
         method:"post",
         headers: {
             'Content-Type': 'application/json',
           },
-        body: JSON.stringify({title,  img,url,  id:router.query.id})}).then(res => res.json()).then(data => {
+        body: JSON.stringify({title,  img,url,  owner:router.query.orderID, slotdetails:slotDetails})}).then(res => res.json()).then(data => {
             if (data.success) {
-                alert('Your slot has been allocated! You will be redirected to homepage now!')
+                alert(`Your slot has been allocated to ${router.query.orderID} ! You will be redirected to homepage now!`)
                 e.target.image.value='';
                 e.target.url.value= '';
                 e.target.title.value= '';
