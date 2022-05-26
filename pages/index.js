@@ -1,12 +1,14 @@
 import Head from 'next/head'
 import Link from 'next/link';
+import axios from "axios";
 import Script from 'next/script'
 import Header from '../components/header/Header'
-
+import {  Form, Button } from "react-bootstrap";
 import { Router, useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
 import { userContext } from './_app'
 import Footer from '../components/footer/Footer';
+import Loading from '../components/loading/Loading';
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
 
@@ -14,11 +16,17 @@ export default function Home(props) {
   const slots= JSON.parse(props.orders);
   const [loggedInUser, setloggedInUser] = useContext(userContext);
   const [selectedSlotinfo, setSelectedSlotinfo] = useContext(userContext);
-  const [loading, setLoading]= useState(true);
+  const [loading, setLoading]= useState(false);
+  const [assignuser, setAssignuser] = useState(false);
+  const [email, setEmail] = useState('thenftslandofficial@gmail.com');
   const router = useRouter()
 
-  
-  const handleProceed= (e) => {
+  const handleAssign=()=>{
+setAssignuser(!assignuser)
+setEmail('thenftslandofficial@gmail.com')
+  }
+  const handleProceed= async (e) => {
+    console.log(email);
     e.preventDefault();
     const selectedSlotDetails= {
       left: e.currentTarget.getAttribute('x'),
@@ -31,11 +39,25 @@ export default function Home(props) {
     setSelectedSlotinfo(selectedSlotDetails);
 
     if (localStorage.getItem('email')==='thenftslandofficial@gmail.com') {
-      router.push({
-        pathname:'/addslot',
-        query: {...selectedSlotDetails, orderID:'admin'}
-    }) 
-    return;
+      
+      try {
+        // setLoading(true)
+        const res = await axios.post('/api/finduser', {email});
+          if(res.status===200){
+            await router.push({
+              pathname:'/assignslot',
+              query: {...selectedSlotDetails, orderID:email}
+          }) 
+          return;
+          }else{
+            alert(`${email} is not found in database. please add user first`)
+          }
+      } catch (error) {
+        // setLoading(flase)
+        alert(`${email} is not found in database. please add this user first`)
+        return;
+      }
+      
     }
     router.push({
       pathname: '/checkout',
@@ -64,7 +86,7 @@ export default function Home(props) {
   
       </div>
 
-      
+      {loading && <Loading/>}
   
       <div className="pt-5 home-main-body">
       <p className="notice"></p>
@@ -99,6 +121,13 @@ export default function Home(props) {
     <div className="modal-body">
       <p id='proceed-modal-msg'> </p>
       <p id='img-size'></p>
+    </div>
+    <div className='text-center user-assign'>
+    <p className="text-center pt-3">{assignuser? `Don't want to assign?` :'Assign to another user?'} <a onClick={handleAssign} className="signup-text cursor-pointer">click here</a></p>
+    {assignuser && <Form.Group className='mb-2' controlId="exampleForm.ControlInput1">
+                    {/* <Form.Label>User Email</Form.Label> */}
+                    <Form.Control onChange={(e) =>setEmail(e.target.value)} type="text" required placeholder="enter user email.."  name="email" />
+                </Form.Group>}
     </div>
     <div className="proceed-modal-footer">
     

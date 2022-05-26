@@ -61,7 +61,7 @@ a:hover, a:focus{
   flex-wrap: wrap;
   flex-shrink: 0;
   flex-grow: 0;
-  flex-basis: 1200px;
+  flex-basis: 1380px;
   align-items: center;
   padding-top: 100px;
   width: 1200px;
@@ -412,6 +412,9 @@ td a{
 .navbar-nav a {
   color: rgb(240, 109, 208) !important;
 }
+.navbar-nav a:active{
+  background-color:none !important;
+}
 .navbar-nav{
   padding: 0 13px;
 }
@@ -431,4 +434,15 @@ td a{
       
   } */
 }
+
+@media (min-width: 767px){
+  .header-bg-blue{
+    margin-left: 25px;
+      background: #5540C5;
+      /* border: 1px solid black; */
+      border-radius: 15px;
+  }
+}
+
+
 

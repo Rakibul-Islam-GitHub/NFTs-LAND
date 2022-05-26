@@ -21,12 +21,12 @@
 
 // ******   modal instance & variables *****////
 let selectedSlot=[]
-let slotsPerRow= 50;
+let slotsPerRow= 69;
 let slotSize=20;
 let marginBetweenSlot=0;
 let margin=marginBetweenSlot;
 let marginTop=100;
-let marginleft=100;
+let marginleft=0;
 const modal = document.getElementById("myModal");
 const proceedModal = document.getElementById("proceedModal");
 const modalSpan = document.getElementsByClassName("close")[0];
@@ -158,7 +158,7 @@ const getSlotInfo=(data) => {
       
       
       document.getElementById('proceed-modal-msg').innerText=`You Have Selected ${uniqueSlotNumber.length} slots (${uniqueSlotNumber})`;
-      document.getElementById('img-size').innerText=`Your Image size should be- 'Hight:${imageSize.hight}px & width:${imageSize.width}px' for optimistic view!`;
+      document.getElementById('img-size').innerText=`Your Image size should be- 'Hight:${imageSize.hight}px & width:${imageSize.width}px' for the best result!`;
       proceedModal.style.display = 'block';
 
     } else {
@@ -182,12 +182,12 @@ const getSlotInfo=(data) => {
        
        
        document.getElementById('proceed-modal-msg').innerText=`You Have Selected ${uniqueSlotNumber.length} slots (${uniqueSlotNumber})`;
-       document.getElementById('img-size').innerText=`Your Image size should be- 'Hight:${imageSize.hight}px & width:${imageSize.width}px' for optimistic view!`;
+       document.getElementById('img-size').innerText=`Your Image size should be- 'Hight:${imageSize.hight}px & width:${imageSize.width}px' for the best result!`;
        proceedModal.style.display = 'block';
     }else{
       data.map(el => el.style.removeProperty('background-color'))
       selectedSlot=[];
-      document.getElementById('modal-msg').innerText='Your selected column(s) are invalid. Please select adjucent row/column.';
+      document.getElementById('modal-msg').innerText='Your selected slot(s) are invalid. Please select adjacent row/column.';
       modal.style.display = "block";
     }
   }
@@ -199,11 +199,11 @@ const getSlotInfo=(data) => {
 window.onload = async function(){
 
   let takeslot=false;
-  for (let i = 0; i < 200; i++) {
+  for (let i = 0; i < 50; i++) {
     const slotrow= document.createElement("div");
     slotrow.classList.add('slot-row');
-    for (let j = 1; j <= 50; j++) {
-      const slot = i*50+j;
+    for (let j = 1; j <= 69; j++) {
+      const slot = i*69+j;
 
       const slotdiv=await document.createElement('div');
   slotdiv.classList.add('slot');

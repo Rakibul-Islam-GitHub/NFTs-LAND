@@ -6,12 +6,46 @@ import axios from "axios";
 import Header from '../../components/header/Header';
 import Loading from '../../components/loading/Loading';
 import moment from 'moment';
+import {Modal,Form, Button} from 'react-bootstrap';
 
 
 const ManageUser = (props) => {
     const users= JSON.parse(props.users);
     const [loading, setLoading] = useState(false)
     const router = useRouter();
+
+    const [show, setShow] = useState(false);
+    const [name, setName]= useState('');
+    const [userid, setUserid] = useState('')
+  const handleClose = () => setShow(false);
+  const handleShow = (name, id) => {
+      setName(name)
+      setUserid(id)
+      setShow(true);
+}
+
+const  handleEditName= async (id)=>{
+setLoading(true);
+setShow(false);
+await fetch('/api/edituser', {
+    method:"post",
+    headers: {
+        'Content-Type': 'application/json',
+      },
+    body: JSON.stringify({name, id:userid})}).then(res => res.json()).then(data => {
+        if (data.success) {
+            
+            // setLoading(false);
+            alert('Name Updated Successfully!')
+            window.location='/manageuser'
+            
+           
+        }else{alert('Error occured')}
+    })
+
+}
+
+
 
     const deleteUser=async (e,userid)=>{
         console.log(userid);
@@ -86,10 +120,12 @@ const ManageUser = (props) => {
                       
                       <td>{user.email}</td>
                       
-                      {user.email!=='thenftslandofficial@gmail.com' && <td> 
-                          {/* <Link onClick={()=> setLoading(true)} href={'/manageslot/edit/'+order._id}>Edit</Link>  */}
+                      {user.email!=='thenftslandofficial@gmail.com' && 
+                      <td> 
+                          <span className="nextButton cursor-pointer" onClick={()=>handleShow(user.displayName, user._id)} href="#" >Edit</span> 
 
-                       <p className="deleteuser" style={{color:'red', cursor: 'pointer'}}  onClick={(e)=> deleteUser(e,user._id)}  href='#'>Delete</p> 
+                       <span className="deleteuser ms-2" style={{color:'red', cursor: 'pointer'}}  onClick={(e)=> deleteUser(e,user._id)}  href='#'>Delete</span> 
+                      
                       </td>}
                       
                       
@@ -100,7 +136,51 @@ const ManageUser = (props) => {
                   </tbody>
                 </table>
 
+{/* modal for edit */}
+{/* <div className="modal5 fade" id="loginModal" tabIndex='-1' role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div className="modal-dialog modal-dialog-centered" role="document">
+    <div className="modal-content">
+      <div className="modal-header border-bottom-0">
+        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div className="modal-body">
+        <div className="form-title text-center">
+          <h4>Login</h4>
+        </div>
+        <div className="d-flex flex-column text-center">
+          <form>
+            <div className="form-group">
+              <input type="email" className="form-control" id="email1" placeholder="Your email address..." />
+            </div>
+            <button type="button" className="btn btn-info btn-block btn-round">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> */}
 
+<Modal className='user-modal' show={show} onHide={handleClose} size="md"
+      aria-labelledby="contained-modal-title-vcenter">
+        <Modal.Header closeButton>
+          <Modal.Title>Edit Name</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <label htmlFor="uname"><b>Name</b></label>
+    <input type="text" value={name} placeholder="Enter name" onChange={(e) => setName(e.target.value)} name="uname" required/>
+            
+            </Modal.Body>
+        <Modal.Footer>
+          {/* <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button> */}
+          <Button variant="primary" onClick={()=>handleEditName()}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
           </div>
 

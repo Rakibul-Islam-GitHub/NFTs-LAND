@@ -133,8 +133,8 @@ const Login = () => {
   <div className="form-child rounded col-10 col-sm-8 col-md-6 col-lg-4 col-xl-3 ">
     <h2 className="text-center fw-bolder pt-3 pb-3">Login Form</h2>
     <div className="btn-parent pt-2 pb-2">
-      <button onClick={handleNewUser} type="submit" className={!isNewUser ?'form-btn fw-bold active': 'form-btn fw-bold'}>Login</button>
-      <button onClick={handleNewUser} type="submit" className={isNewUser ? 'form-btn fw-bold active': 'form-btn fw-bold'}>Sign up</button>
+      <button onClick={handleNewUser} type="submit" className={!isNewUser ?'form-btn fw-bold active-bg': 'form-btn fw-bold'}>Login</button>
+      <button onClick={handleNewUser} type="submit" className={isNewUser ? 'form-btn fw-bold active-bg': 'form-btn fw-bold'}>Sign up</button>
     </div>
     <form onSubmit={handleSignup} id="loginForm" className="signin-form">
       {isNewUser&& <div className="form-group mt-3 pb-3">

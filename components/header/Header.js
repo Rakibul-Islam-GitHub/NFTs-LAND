@@ -35,8 +35,8 @@ const Header = () => {
       
       {/* <Nav.Link href="#pricing">Pricing</Nav.Link> */}
       <a className="slot-price mt-2">$10 PER SLOT</a>
-      <a className="slot-price cursor-pointer mt-2">About</a>
-      <a className="slot-price cursor-pointer mt-2">FAQ</a>
+      <a className="slot-price cursor-pointer header-bg-blue mt-2">About</a>
+      <a className="slot-price cursor-pointer header-bg-blue mt-2">FAQ</a>
       
 
       

@@ -25,7 +25,7 @@
 	background-color: white;
 
 }
-.active{
+.active-bg{
 	background:linear-gradient(to right, rgb(170,64,184), rgb(248,65,154));
     border: none;
 	color:white;
