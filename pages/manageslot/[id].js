@@ -61,7 +61,7 @@ const Manageslot = (props) => {
 
       <div className=" manage-slot">
 
-          <div className="p-2 col-sm-12 col-md-10 col-lg-8">
+          <div className="p-2 col-12 col-md-10 col-lg-8">
               <h5 className='mb-2'>Manage slot</h5>
 
 

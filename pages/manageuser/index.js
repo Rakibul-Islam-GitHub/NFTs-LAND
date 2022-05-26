@@ -130,7 +130,7 @@ const handleadduser=async () => {
 
       <div className=" manage-slot">
 
-          <div className="p-2 col-sm-12 col-md-10 col-lg-8">
+          <div className="p-2 col-12 col-md-10 col-lg-8">
              <div className="user-table-header d-flex justify-content-between mb-4">
              <h5 className='mb-2'>Manage Users</h5>
               <button onClick={handleaddmodalshow} className='float-right me-2'>Add new user</button>

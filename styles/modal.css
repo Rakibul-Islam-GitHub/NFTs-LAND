@@ -265,13 +265,23 @@
    text-align: right;
 }
 
-.adduser-modal .modal-body {padding: 30px 16px;}
+.adduser-modal .modal-body {
+  padding: 30px 16px;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+}
 
 .adduser-modal .modal-footer {
   padding: 2px 16px;
   background-color: #0a2f6a37;
   color: white;
-  justify-content: flex-start;
+  justify-content:center;
 }
 .adduser-modal .modal-body p{
     color: rgb(4, 8, 57);
