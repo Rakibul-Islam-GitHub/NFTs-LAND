@@ -88,7 +88,7 @@ setEmail('thenftslandofficial@gmail.com')
 
       {loading && <Loading/>}
   
-      <div className="pt-5 home-main-body">
+      <div className="home-main-body">
       <p className="notice"></p>
  
       {/* invalid slot selection modal */}

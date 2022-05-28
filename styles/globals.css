@@ -430,7 +430,7 @@ td a{
 }
 
 .navbar-nav a {
-  color: rgb(240, 109, 208) !important;
+  color: rgb(240, 109, 208);
 }
 .navbar-nav a:active{
   background-color:none !important;
@@ -446,6 +446,46 @@ td a{
   background-color: #00101b;
 }
 
+.dropdown-menu a{
+  color: rgb(240, 109, 208) !important;
+}
+
+.about-body {
+  min-height: 73.7vh;
+  color: #0b0b0b;
+}
+.about-body .content{
+  margin-top:50px;
+}
+.font-arial{
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+/* faq */
+.content-faq {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+#myAccordion{
+  border: 1px solid #eeeecfd4;
+  border-radius: 10px;
+  
+}
+.accordion-header h5 {
+  font-style: normal !important;
+  font-weight: 600;
+}
+.accordion-collapse p{
+font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+
+
+
 @media (max-width: 576px){
   /* footer{
     width: 576px !important;
@@ -456,12 +496,15 @@ td a{
 }
 
 @media (min-width: 767px){
-  .header-bg-blue{
+  .header-bg-blue {
     margin-left: 25px;
-      background: #5540C5;
-      /* border: 1px solid black; */
-      border-radius: 15px;
-  }
+    background: #5540C5;
+    border: 1px solid black;
+    border-radius: 15px;
+    font-size: 15px;
+    height: 22px;
+    color: #ebecf0 !important;
+}
 }
 
 
