@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import Link from 'next/link';
 
 import { faFacebook, faTwitter, faInstagram, faLinkedinIn } from "@fortawesome/free-brands-svg-icons"
 
@@ -9,10 +10,10 @@ const Footer = () => {
         <div className="footer row">
           <div className="col-md-4 footer-left">
             <li>
-              <a href="#">Privacy Policy</a>
+              <Link href="/privacypolicy"><a >Privacy Policy</a></Link>
             </li>
             <li>
-              <a href="#">Terms & Conditions</a>
+              <Link href="/termsandcondition"><a>Terms & Conditions</a></Link>
             </li>
           </div>
           <div className="col-md-4 footer-middle">
