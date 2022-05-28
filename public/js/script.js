@@ -213,7 +213,6 @@ window.onload = async function(){
 await slotrow.appendChild(slotdiv);
   await document.getElementById('slot-wrapper').appendChild(slotrow);
 
-  document.getElementsByClassName('preloader')[0].style.display = "none";
   
   slotdiv.addEventListener('dblclick', async (e) =>{
     takeslot = false;
@@ -294,7 +293,7 @@ await slotrow.appendChild(slotdiv);
 
 
 
-  // document.getElementsByClassName('preloader')[0].style.display = "none";
+  document.getElementsByClassName('preloader')[0].style.display = "none";
 }
 
 
