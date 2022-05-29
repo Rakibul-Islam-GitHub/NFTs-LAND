@@ -77,7 +77,10 @@ const Edit = (props) => {
     })
     .catch(err => console.log(err))
       } else {
-       
+        if (url.substr(0, 'http://'.length) !== 'http://')
+        {
+            url = 'http://' + url;
+        }
         await fetch('/api/editslot', {
             method:"post",
             headers: {

@@ -79,7 +79,7 @@ setEmail('thenftslandofficial@gmail.com')
       <Script src="/js/script.js" ></Script>
       
       
-      <div className="preloader"></div>
+      {/* <div className="preloader"></div> */}
       <div className='header-section'>
         
         <Header/>
@@ -89,6 +89,7 @@ setEmail('thenftslandofficial@gmail.com')
       {loading && <Loading/>}
   
       <div className="home-main-body">
+      <div className="preloader"></div>
       <p className="notice"></p>
  
       {/* invalid slot selection modal */}

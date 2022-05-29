@@ -35,7 +35,7 @@ const AddSlot = () => {
         setLoading(true)
         e.preventDefault();
         const title = e.target.title.value;
-        const url= e.target.url.value;
+        let url= e.target.url.value;
         let img = '';
         
         const owner= await localStorage.getItem("email");
@@ -59,7 +59,12 @@ const AddSlot = () => {
     .then( async data => {
     if (data.url) {
         img= data.url;
-        console.log(img);
+        //adding http to url
+        
+if (url.substr(0, 'http://'.length) !== 'http://')
+{
+    url = 'http://' + url;
+}
        await fetch('/api/editslot', {
         method:"post",
         headers: {
