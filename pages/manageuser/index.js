@@ -107,7 +107,7 @@ return;
                   },
                 body: JSON.stringify({id:userid})}).then(res => res.json()).then(data => {
                     if (data.success) {
-                      window.location='/manageuser';
+                      window.location.href='/manageuser';
                     //    setLoading(false)
 
                        
@@ -126,7 +126,7 @@ return;
         }
         
     setLoading(false)
-       },[setLoading, router])
+       },[ router])
 
 
     return (
