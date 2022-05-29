@@ -67,23 +67,27 @@ alert('Email already exists');
 setLoading(false)
 return;
           }
-    const res = await axios.post('/api/userRegistration', {email, password, displayName:name});
+          
+          
+           
+         
     
-    if(res.status===200){
-      setAddmodalshow(false)
-    //  alert('New user added successfully')
-     setAddmodalshow(false);
-    //  setLoading(false)
-     window.location=`/manageuser`
-      return;
-      
-    }
     
 } catch (error) {
-  
+  const res = await axios.post('/api/userRegistration', {email, password, displayName:name});
+    
+  if(res.status===200){
+    setAddmodalshow(false)
+  //  alert('New user added successfully')
+   setAddmodalshow(false);
+  //  setLoading(false)
+   window.location=`/manageuser`
+    return;
+    
+  }
     console.log(error);
     setLoading(false)
-    alert('something went wrong');
+    
 
     
 }
@@ -103,11 +107,11 @@ return;
                   },
                 body: JSON.stringify({id:userid})}).then(res => res.json()).then(data => {
                     if (data.success) {
-                        window.location =`/manageuser`
+                      window.location='/manageuser';
                     //    setLoading(false)
 
                        
-                    }else{alert('Error occured')}
+                    }else{window.location='/manageuser'; alert('Error occured')}
                 })
         } catch (error) {
             console.log(error);
