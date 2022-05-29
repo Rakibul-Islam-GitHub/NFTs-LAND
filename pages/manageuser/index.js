@@ -61,6 +61,12 @@ const handleadduser=async () => {
     
     setLoading(true);
     setAddmodalshow(false);
+    const resemail = await axios.post('/api/emailcheck', {email});
+          if(resemail.status===200){
+alert('Email already exists');
+setLoading(false)
+return;
+          }
     const res = await axios.post('/api/userRegistration', {email, password, displayName:name});
     
     if(res.status===200){
@@ -97,7 +103,7 @@ const handleadduser=async () => {
                   },
                 body: JSON.stringify({id:userid})}).then(res => res.json()).then(data => {
                     if (data.success) {
-                        window.location.href =`/manageuser`
+                        window.location =`/manageuser`
                     //    setLoading(false)
 
                        

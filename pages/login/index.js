@@ -54,6 +54,12 @@ const Login = () => {
   
           // send user details to db for sign up
           try {
+            // checking email exists 
+            const resemail = await axios.post('/api/emailcheck', {email});
+          if(resemail.status===200){
+alert('Email already exists');
+return;
+          }
             const res = await axios.post('/api/userRegistration', {email, password, displayName});
             if(res.status===200){
               document.getElementById("loginForm").reset();
@@ -118,6 +124,7 @@ const Login = () => {
       } catch (error) {
           console.log(error);
           alert('Invalid username or password')
+          setLoading(false)
           
       }
       }
