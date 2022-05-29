@@ -292,8 +292,10 @@ await slotrow.appendChild(slotdiv);
 
 
 
-
+setTimeout(() => {
   document.getElementsByClassName('preloader')[0].style.display = "none";
+}, 1000);
+  
 }
 
 

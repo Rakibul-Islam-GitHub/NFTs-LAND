@@ -177,7 +177,7 @@ li{
   background-size: 80px;
 }
 .slot-img img{
-  z-index: 99;
+  z-index: auto;
 }
 .notice {
   position: absolute;
