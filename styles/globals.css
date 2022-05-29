@@ -164,7 +164,7 @@ li{
 }
 
 .preloader {
-  position: fixed;
+  position: absolute;
   left: 0px;
   top: 0px;
   width: 100%;
@@ -179,7 +179,9 @@ li{
 .slot-img img{
   z-index: 1;
 }
-
+.slot-wrapper{
+  z-index: 2;
+}
 .notice {
   position: absolute;
   top: 55px;
