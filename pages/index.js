@@ -163,7 +163,7 @@ setEmail('thenftslandofficial@gmail.com')
        </div>
 
        <img key={slot._id.toString()} className='slotimg' src={slot.img} height={slot.slotdetails.hight} width={slot.slotdetails.width} alt="slot-image" 
-           style={{position: 'absolute', top: slot.slotdetails.top+'px', left: slot.slotdetails.left+'px', objectFit:'fill', height:slot.slotdetails.hight+'px', width:slot.slotdetails.width+'px'}}
+           style={{position: 'absolute', top: slot.slotdetails.top+'px', left: slot.slotdetails.left+'px', objectFit:'fill', height:slot.slotdetails.hight+'px', width:slot.slotdetails.width+'px', zIndex:'1'}}
            />
            </div>
            </>

@@ -176,12 +176,12 @@ li{
   background-image: url(/images/preloader.svg);
   background-size: 80px;
 }
-.slot-img img{
+/* .slot-img img{
   z-index: 1;
 }
 .slot-wrapper{
   z-index: 2;
-}
+} */
 .notice {
   position: absolute;
   top: 55px;
