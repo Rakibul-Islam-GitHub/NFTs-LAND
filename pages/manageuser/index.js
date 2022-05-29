@@ -47,7 +47,8 @@ await fetch('/api/edituser', {
             
             // setLoading(false);
             alert('Name Updated Successfully!')
-            window.location='/manageuser'
+            // window.location='/manageuser'
+            router.reload(window.location.pathname)
             
            
         }else{alert('Error occured')}
@@ -81,7 +82,8 @@ return;
   //  alert('New user added successfully')
    setAddmodalshow(false);
   //  setLoading(false)
-   window.location=`/manageuser`
+  //  window.location=`/manageuser`
+  router.reload(window.location.pathname)
     return;
     
   }
@@ -107,7 +109,10 @@ return;
                   },
                 body: JSON.stringify({id:userid})}).then(res => res.json()).then(data => {
                     if (data.success) {
-                      window.location.href='/manageuser';
+                      // window.location.href='/manageuser';
+                      
+
+router.reload(window.location.pathname)
                     //    setLoading(false)
 
                        
