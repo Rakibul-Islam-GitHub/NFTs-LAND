@@ -255,7 +255,7 @@ router.reload(window.location.pathname)
 
 
 
-export async function getStaticProps(){
+export async function getServerSideProps(){
     const uri = `mongodb+srv://rakibul:${process.env.DB_PASS}@cluster0.gpypc.mongodb.net/nft-slot?retryWrites=true&w=majority`;
     const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
     const db = client.db();
@@ -271,7 +271,7 @@ export async function getStaticProps(){
         props: {
           users: JSON.stringify(alluser)
         },
-        revalidate:10
+        // revalidate:10
       }
       
     
