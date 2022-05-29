@@ -271,7 +271,7 @@ export async function getStaticProps(){
         props: {
           users: JSON.stringify(alluser)
         },
-        
+        revalidate:10
       }
       
     
