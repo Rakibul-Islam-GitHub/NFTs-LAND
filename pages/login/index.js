@@ -11,8 +11,9 @@ const Login = () => {
  
     const [loggedInUser, setloggedInUser] = useContext(userContext);
     const [loading, setLoading]= useState(true)
-  
+    const [resetEmail, setResetEmail] =  useState(" ")
     const [isNewUser, setUser] = useState(false);
+    const [isReset, setIsReset] = useState(false);
     const [isError, setIsError] = useState({
       emailError: false,
       password: false,
@@ -30,7 +31,32 @@ const Login = () => {
   
   }, [])
     
-  
+  const handleResetEmail=async (e) => {
+    if (resetEmail==='') {
+      alert('Please enter your email address')
+      return;
+    }
+    e.preventDefault();
+    try {
+      const res = await axios.post('/api/finduser', {email:resetEmail});
+          if(res.status===200){
+            const res= await axios.post('/api/mail',{email:resetEmail})
+    // console.log('email',res.data);
+    if (res.status===200) {
+      setResetEmail('');
+      alert('Email has been sent for password reset. Please check your inbox/spam.')
+      return;
+    } 
+     else{alert('Internal server error')}
+          } 
+          else{
+            alert(`${email} is not found in database.`)
+          }
+    } catch (error) {
+      alert(`email is not found in database.`)
+    }
+    
+  }
     function handleNewUser() {
       setUser(!isNewUser);
     }
@@ -142,7 +168,46 @@ return;
        
 
         <div className="login-parent row">
+  {isReset? 
   <div className="form-child rounded col-10 col-sm-8 col-md-6 col-lg-4 col-xl-3 ">
+  <h2 className="text-center fw-bolder pt-3 pb-3">{isReset&&isNewUser? 'Sign Up' :'Password Reset'}</h2>
+  <div className="btn-parent pt-2 pb-2">
+    <button onClick={handleNewUser} type="submit" className={!isNewUser ?'form-btn fw-bold active-bg': 'form-btn fw-bold'}>Reset</button>
+    <button onClick={handleNewUser} type="submit" className={isNewUser ? 'form-btn fw-bold active-bg': 'form-btn fw-bold'}>Sign up</button>
+  </div>
+  <form onSubmit={handleSignup} id="loginForm" className="signin-form">
+    
+
+  {isNewUser&& <div className="form-group mt-3 pb-3">
+        <input type="text" className="form-control p-2" name='name' required placeholder="Full Name.." />
+      </div>}
+    <div  className={isNewUser? 'form-group pb-3': 'form-group mt-3 pb-3'}>
+      <input onChange={(e)=>setResetEmail(e.target.value)} type="email" className="form-control p-2" value={resetEmail} name='email' required placeholder="Email Address.." />
+    </div>
+    {isNewUser&& <div className="form-group pb-3">
+        <input id="password-field" type="password" className="form-control p-2" name='password' required placeholder="Password.." />
+      </div>}
+  
+    
+    {isNewUser? <div className="form-group pt-1">
+    <button type="submit" className="form-control btn-submit text-white fw-bold">Signup</button>
+  </div> : 
+  <div className="form-group pt-1">
+    <button onClick={(e)=>handleResetEmail(e)} className="form-control btn-submit text-white fw-bold">Reset</button>
+  </div>}
+    
+  </form>
+  {isNewUser ? 
+  <p className="text-center pt-3">Already registered? <a onClick={()=>{setIsReset(false); setUser(false)}} className="signup-text cursor-pointer">Signin</a></p>
+:
+<p className="text-center pt-3">Not a member? <a onClick={handleNewUser} className="signup-text cursor-pointer">Signup</a></p>}
+
+<p className="text-center pt-0">{isNewUser? '': 'Already registered?'} <a onClick={()=>{ setIsReset(!isReset); setUser(false)}} className="signup-text cursor-pointer">{isNewUser? '':'login'}</a></p>
+</div>
+
+:
+
+<div className="form-child rounded col-10 col-sm-8 col-md-6 col-lg-4 col-xl-3 ">
     <h2 className="text-center fw-bolder pt-3 pb-3">Login Form</h2>
     <div className="btn-parent pt-2 pb-2">
       <button onClick={handleNewUser} type="submit" className={!isNewUser ?'form-btn fw-bold active-bg': 'form-btn fw-bold'}>Login</button>
@@ -158,15 +223,20 @@ return;
       <div className="form-group pb-3">
         <input id="password-field" type="password" className="form-control p-2" name='password' required placeholder="Password.." />
       </div>
+      
       <div className="form-group pt-1">
-        <button type="submit" className="form-control btn-submit text-white fw-bold">{isNewUser? 'Signup' : 'Login'}</button>
-      </div>
+      <button type="submit" className="form-control btn-submit text-white fw-bold">{isNewUser? 'Signup' : 'Login' }</button>
+    </div>
+      
     </form>
     {isNewUser ? 
     <p className="text-center pt-3">Already registered? <a onClick={handleNewUser} className="signup-text cursor-pointer">Signin</a></p>
   :
   <p className="text-center pt-3">Not a member? <a onClick={handleNewUser} className="signup-text cursor-pointer">Signup</a></p>}
+
+<p className="text-center pt-0">{isReset? 'Or you can': 'Forget password?'} <a onClick={()=>{setUser(false); setIsReset(true)}} className="signup-text cursor-pointer">{isReset? 'Login':'reset'}</a></p>
   </div>
+}
 </div>
 
         </>

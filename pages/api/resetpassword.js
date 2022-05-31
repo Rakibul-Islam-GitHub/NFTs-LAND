@@ -1,7 +1,7 @@
 import {client} from '../../database/dbConnect';
 
 function handler(req, res) {
-    // generate unique id 
+     // generate unique id 
   function makeid(length) {
     var result           = '';
     var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -12,23 +12,28 @@ function handler(req, res) {
    }
    return result;
 }
+    
     if (req.method === 'POST') {
-       
-        let data = req.body
-        data.resetcode= makeid(18);
-        if(data.email && data.password && data.displayName){
-            
+
+        const {password, code} = req.body
+        
+        
+        if(password && code) {
+
+            const resetcode= makeid(18)
+            console.log(password,code);
             client.connect(async err => {
                 const collection = client.db("nft-slot").collection("users");
                 
-                const result= await collection.insertOne(data);
-                // console.log(result)
-                if(result){
+                const result= await collection.updateOne({"resetcode": code}, {$set:{password: password,resetcode: resetcode}});
+                
+                if(result.modifiedCount){
                     client.close();
-                    res.status(200).send('Registration done successfully');
+                    console.log(result);
+                    res.status(200).json({success: true, status:200});
                 }else{
                     console.log(err);
-                    res.status(500).send('server error')
+                    res.status(500).json({success: false});
                 }
                 
               });
@@ -39,11 +44,10 @@ function handler(req, res) {
 
         }
         else{
-            res.status(403).send('invalid data')
+            res.status(403).json({message:'Invalid data'})
         }
        
     }
-    
 }
 
 
