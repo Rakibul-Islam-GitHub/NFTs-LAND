@@ -19,7 +19,7 @@ function handler(req, res) {
                     res.status(200).send(result);
                 }else{
                     console.log(err);
-                    res.status(403).send('Invalid Username or Password');
+                    res.status(403).json({msg:'Invalid Username or Password'});
                 }
                 
               });
@@ -30,9 +30,12 @@ function handler(req, res) {
 
         }
         else{
-            res.status(403).send('invalid data')
+            res.status(403).json({msg:'Email not found'});
+            return;
         }
        
+    }else{
+        res.status(403).json({msg:'Email not found'});
     }
     
 }

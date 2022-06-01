@@ -198,8 +198,7 @@
 .user-modal .modal-header {
   padding: 2px 16px;
   background-color: #ffffffb8;
-  color: rgba(19, 16, 17, 0.789);
-
+  color: rgb(204 11 20 / 79%);
 }
 .user-modal .modal-header-text{
    text-align: right;
@@ -211,6 +210,7 @@
   padding: 2px 16px;
   background-color: #0a2f6a37;
   color: white;
+  justify-content: center;
 }
 .user-modal .modal-body p{
     color: rgb(4, 8, 57);

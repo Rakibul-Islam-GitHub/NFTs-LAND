@@ -7,6 +7,8 @@ import Header from '../../components/header/Header';
 import Loading from '../../components/loading/Loading';
 import moment from 'moment';
 import {Modal,Form, Button} from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserPen } from "@fortawesome/free-solid-svg-icons"
 
 
 const ManageUser = (props) => {
@@ -126,7 +128,7 @@ router.reload(window.location.pathname)
     useEffect( () =>{
         
         if (localStorage.getItem("email") !== 'thenftslandofficial@gmail.com') {
-            router.push('/logout')
+            router.push('/login')
             return;
         }
         
@@ -148,7 +150,7 @@ router.reload(window.location.pathname)
           <div className="p-2 col-12 col-md-10 col-lg-8">
              <div className="user-table-header d-flex justify-content-between mb-4">
              <h5 className='mb-2'>Manage Users</h5>
-              <button onClick={handleaddmodalshow} className='float-right me-2'>Add new user</button>
+              {/* <button onClick={handleaddmodalshow} className='float-right me-2'>Add new user</button> */}
 
              </div>
 
@@ -175,13 +177,16 @@ router.reload(window.location.pathname)
                       
                       <td>{user.email}</td>
                       
-                      {user.email!=='thenftslandofficial@gmail.com' && 
+                      <td> 
+                          <span className="nextButton text-center cursor-pointer" onClick={()=>handleShow(user.displayName, user._id)} href="#" ><FontAwesomeIcon icon={faUserPen} /></span> 
+                          </td>
+                      {/* {user.email!=='thenftslandofficial@gmail.com' && 
                       <td> 
                           <span className="nextButton cursor-pointer" onClick={()=>handleShow(user.displayName, user._id)} href="#" >Edit</span> 
 
                        <span className="deleteuser ms-2" style={{color:'red', cursor: 'pointer'}}  onClick={(e)=> deleteUser(e,user._id)}  href='#'>Delete</span> 
                       
-                      </td>}
+                      </td>} */}
                       
                       
                     </tr>

@@ -494,7 +494,29 @@ font-family: Arial, Helvetica, sans-serif;
   margin-bottom:50px;
 }
 
-
+/* admin panel  */
+/* .delete-user{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+} */
+.delete-user-btn{
+  display:none;
+  background-color:rgb(190, 50, 50);
+  color: white;
+  text-align: center;
+ 
+}
+td.delete-user:hover > .delete-user-btn {
+  
+  display:block;
+  transition: all 0.8 ease;
+}
+span.nextButton {
+  font-size: 19px;
+  padding: 14px;
+}
 
 @media (max-width: 576px){
   /* footer{
@@ -503,6 +525,10 @@ font-family: Arial, Helvetica, sans-serif;
        float: left;
       
   } */
+  span.nextButton {
+    font-size: 15px;
+    padding: 10px;
+  }
 }
 
 @media (min-width: 767px){

@@ -32,6 +32,7 @@ const Edit = (props) => {
         e.preventDefault();
         const title = e.target.title.value;
         const url= e.target.url.value;
+        const name= e.target.name.value;
         let img = order.img
         console.log(title, url);
         const owner= await localStorage.getItem("email");
@@ -59,10 +60,11 @@ const Edit = (props) => {
           },
         body: JSON.stringify({title, url, img, id:order._id})}).then(res => res.json()).then(data => {
             if (data.success) {
-                e.target.image.value='';
+
+               
                 e.target.url.value= '';
-                e.target.title.value= '';
-               router.back();
+                    e.target.title.value= '';
+                   router.back();
                
             }
 
@@ -88,10 +90,26 @@ const Edit = (props) => {
               },
             body: JSON.stringify({title, img:order.img, url, id:order._id})}).then(res => res.json()).then(data => {
                 if (data.success) {
+
+                    fetch('/api/edituser', {
+                        method:"post",
+                        headers: {
+                            'Content-Type': 'application/json',
+                          },
+                        body: JSON.stringify({name, id:order.userid})}).then(res => res.json()).then(data => {
+                            if (data.success) {
+                                
+                                e.target.image.value='';
+                                e.target.url.value= '';
+                                e.target.title.value= '';
+                                e.target.name.value= '';
+                               router.back();
+                                
+                               
+                            }else{alert('Error occured')}
+                        })
                     
-                    e.target.url.value= '';
-                    e.target.title.value= '';
-                   router.back();
+                    
                    
                 }else{alert('Error occured')}
             })
@@ -126,6 +144,10 @@ const Edit = (props) => {
 <div className=" mt-2 form-center">
 <h4 className="text-center mb-3">Update The slot</h4>
             <Form onSubmit={addReviewHandler} className="review-form ">
+            <Form.Group controlId="exampleForm.ControlInput1">
+                    <Form.Label>User</Form.Label>
+                    <Form.Control type="text" defaultValue={order.displayName} required name="name" />
+                </Form.Group>
                 <Form.Group controlId="exampleForm.ControlInput1">
                     <Form.Label>Title</Form.Label>
                     <Form.Control type="text" defaultValue={order.title} required name="title" />
@@ -163,10 +185,14 @@ export async function getServerSideProps(context){
     const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
     const db = client.db();
     const orderCollection = db.collection("orders");
+    const userCollection = db.collection("users");
 
    
-        const orderbyid = await orderCollection.findOne({"_id": ObjectId(id)});
-  
+        let orderbyid = await orderCollection.findOne({"_id": ObjectId(id)});
+        let user = await userCollection.findOne({"email": orderbyid.owner});
+        
+        orderbyid.displayName=user.displayName;
+        orderbyid.userid=user._id;
     client.close();
 
     return {

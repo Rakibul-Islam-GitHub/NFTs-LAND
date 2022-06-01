@@ -44,16 +44,21 @@ const Header = () => {
     
     <Nav>
     {(loggedInUser.email === 'thenftslandofficial@gmail.com') && <Nav.Link href={'/allorders/'}>All Orders</Nav.Link>}
-
+    {(loggedInUser.email === 'thenftslandofficial@gmail.com') && <Nav.Link href={'/manageuser/'}>All Users</Nav.Link>}
     {(loggedInUser.email === 'thenftslandofficial@gmail.com') ?
-    <NavDropdown title="Admin Panel" id="collasible-nav-dropdown">
+    // <NavDropdown title="Admin Panel" id="collasible-nav-dropdown">
         
-        {loggedInUser.email !== (undefined||null) && <Nav.Link href={'/manageslot/'+loggedInUser.email}>Manage Slot</Nav.Link>}
+    //     {loggedInUser.email !== ( undefined||null) && loggedInUser.email !=='thenftslandofficial@gmail.com'? <Nav.Link href={'/manageslot/'+loggedInUser.email}>Manage Slot</Nav.Link>: ''}
 
-      {(loggedInUser.email === 'thenftslandofficial@gmail.com') && <Nav.Link href={'/manageuser/'}>Manage Users</Nav.Link>}
+    //     {(loggedInUser.email === 'thenftslandofficial@gmail.com') && <Nav.Link href={'/adminpanel/'}>Manage Slot</Nav.Link>}
+    //   {(loggedInUser.email === 'thenftslandofficial@gmail.com') && <Nav.Link href={'/manageuser/'}>All Users</Nav.Link>}
        
         
-    </NavDropdown>  :
+    // </NavDropdown> 
+    
+    <Nav.Link href={'/adminpanel/'}>Admin Panel</Nav.Link>
+    
+    :
 
      loggedInUser.email !== (undefined||null) && <Nav.Link href={'/manageslot/'+loggedInUser.email}>Manage Slot</Nav.Link>
 
