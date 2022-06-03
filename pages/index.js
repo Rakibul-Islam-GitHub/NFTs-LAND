@@ -153,20 +153,20 @@ setEmail('thenftslandofficial@gmail.com')
           
        {slots.map( (slot)=> {
          return(
-           <>
+           
            <div key={slot._id.toString()} className="slot-img">
            <div className="hover-div" style={{top:slot.slotdetails.top-100+'px', left:(slot.slotdetails.left-80)+'px'}}>
              <p className="slot-num">Slot No. {slot.slotdetails.slot}</p>
-             <img src={slot.img} alt={slot.title} style={{maxHeight:'110px', width:'210px' }} />
+             <img  src={slot.img} alt={slot.title} style={{maxHeight:'110px', width:'210px' }} />
          <h5 className="slot-title">{slot.title}</h5>
          <p className="slot-url">Link: <a href={slot.url}>Click Here</a> </p>
        </div>
 
-       <img key={slot._id.toString()} className='slotimg' src={slot.img} height={slot.slotdetails.hight} width={slot.slotdetails.width} alt="slot-image" 
+       <img  className='slotimg' src={slot.img} height={slot.slotdetails.hight} width={slot.slotdetails.width} alt="slot-image" 
            style={{position: 'absolute', top: slot.slotdetails.top+'px', left: slot.slotdetails.left+'px', objectFit:'fill', height:slot.slotdetails.hight+'px', width:slot.slotdetails.width+'px', zIndex:'1'}}
            />
            </div>
-           </>
+           
           
 
          )
@@ -217,7 +217,7 @@ export async function getStaticProps(){
       props: {
         orders: JSON.stringify(allorder)
       },
-      revalidate:100
+      revalidate:10
     }
     
   

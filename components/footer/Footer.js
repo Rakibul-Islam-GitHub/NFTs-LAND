@@ -18,23 +18,23 @@ const Footer = () => {
           </div>
           <div className="col-md-4 footer-middle">
             
-              <a href="https://twitter.com/thenftsland"><FontAwesomeIcon
+              <a href="https://twitter.com/thenftslot"><FontAwesomeIcon
                 icon={faFacebook}
                 style={{ fontSize: 20, color: "white" }}
               /></a>
 
-        <a href="https://twitter.com/thenftsland"><FontAwesomeIcon
+        <a href="https://twitter.com/thenftslot"><FontAwesomeIcon
                 icon={faInstagram}
                 style={{ fontSize: 20, color: "white" }}
               /></a>
 
-        <a href="https://twitter.com/thenftsland"><FontAwesomeIcon
+        <a href="https://twitter.com/thenftslot"><FontAwesomeIcon
                 icon={faLinkedinIn}
                 style={{ fontSize: 20, color: "white" }}
               />
 </a>
 
-        <a href="https://twitter.com/thenftsland"><FontAwesomeIcon
+        <a href="https://twitter.com/thenftslot"><FontAwesomeIcon
                 icon={faTwitter}
                 style={{ fontSize: 20, color: "white" }}
               /></a>
@@ -44,8 +44,8 @@ const Footer = () => {
           </div>
           <div className="col-md-4 footer-right">
             <li>
-              <a href="mailto:thenftslandofficial@gmail.com">
-                thenftslandofficial@gmail.com
+              <a href="mailto:thenftslot@gmail.com">
+              thenftslot@gmail.com
               </a>
             </li>
           </div>

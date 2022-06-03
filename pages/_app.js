@@ -17,7 +17,7 @@ export const userContext = createContext();
 
 function MyApp({ Component, pageProps }) {
   
-  const [loggedInUser, setLoggedInUser] = useState({email:null, name: null});
+  const [loggedInUser, setLoggedInUser] = useState({email:null, name: null, admin:process.env.NEXT_PUBLIC_ADMIN});
   const [selectedSlotinfo, setSelectedSlotinfo] = useState();
   
   useEffect(()=>{ 

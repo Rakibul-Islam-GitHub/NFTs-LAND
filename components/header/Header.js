@@ -11,8 +11,7 @@ const Header = () => {
     
     
       setloggedInUser({ email: localStorage.getItem('email'), name: localStorage.getItem('name')})
-     
-    
+
   },[loggedInUser.email, setloggedInUser])
 
     return (
@@ -43,9 +42,9 @@ const Header = () => {
     </Nav>
     
     <Nav>
-    {(loggedInUser.email === 'thenftslandofficial@gmail.com') && <Nav.Link href={'/allorders/'}>All Orders</Nav.Link>}
-    {(loggedInUser.email === 'thenftslandofficial@gmail.com') && <Nav.Link href={'/manageuser/'}>All Users</Nav.Link>}
-    {(loggedInUser.email === 'thenftslandofficial@gmail.com') ?
+    {(loggedInUser.email === process.env.NEXT_PUBLIC_ADMIN) && <Nav.Link href={'/allorders/'}>All Orders</Nav.Link>}
+    {(loggedInUser.email === process.env.NEXT_PUBLIC_ADMIN) && <Nav.Link href={'/manageuser/'}>All Users</Nav.Link>}
+    {(loggedInUser.email === process.env.NEXT_PUBLIC_ADMIN) ?
     // <NavDropdown title="Admin Panel" id="collasible-nav-dropdown">
         
     //     {loggedInUser.email !== ( undefined||null) && loggedInUser.email !=='thenftslandofficial@gmail.com'? <Nav.Link href={'/manageslot/'+loggedInUser.email}>Manage Slot</Nav.Link>: ''}
