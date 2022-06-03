@@ -205,13 +205,13 @@ window.onload = async function(){
     for (let j = 1; j <= 69; j++) {
       const slot = i*69+j;
 
-      const slotdiv=await document.createElement('div');
+      const slotdiv= document.createElement('div');
   slotdiv.classList.add('slot');
   // slotdiv.classList.add('darkslot');
   slotdiv.setAttribute('id', 'slot');
   slotdiv.setAttribute('slot', slot);
-await slotrow.appendChild(slotdiv);
-  await document.getElementById('slot-wrapper').appendChild(slotrow);
+ slotrow.appendChild(slotdiv);
+   document.getElementById('slot-wrapper').appendChild(slotrow);
 
   
   slotdiv.addEventListener('dblclick', async (e) =>{

@@ -201,7 +201,7 @@ setEmail(process.env.NEXT_PUBLIC_ADMIN)
   )
 }
 
-export async function getStaticProps(){
+export async function getServerSideProps(){
   const uri = `mongodb+srv://rakibul:${process.env.DB_PASS}@cluster0.gpypc.mongodb.net/nft-slot?retryWrites=true&w=majority`;
   const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
   const db = client.db();
@@ -217,7 +217,7 @@ export async function getStaticProps(){
       props: {
         orders: JSON.stringify(allorder)
       },
-      revalidate:10
+      // revalidate:10
     }
     
   
