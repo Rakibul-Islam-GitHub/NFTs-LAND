@@ -544,6 +544,13 @@ span.nextButton {
 .preloader{
   display:none;
 }
+.header-section {
+  
+  z-index: 100000;
+}
+.home-main-body{
+  z-index: 99;
+}
 
 }
 
