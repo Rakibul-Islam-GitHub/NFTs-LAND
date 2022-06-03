@@ -373,7 +373,8 @@ thead{
 
   .home-main-body {
     display: block !important;
-    padding-top: 15px;
+    padding-top: 0px !important;
+    margin-top: -10px;
 }
   /*
 .header-section {
@@ -529,6 +530,21 @@ span.nextButton {
     font-size: 15px;
     padding: 10px;
   }
+  .home-main-body {
+    
+    margin-top: -40px;
+}
+.notice {
+  top: 71px;
+  
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+ 
+.preloader{
+  display:none;
+}
+
 }
 
 @media (min-width: 767px){
