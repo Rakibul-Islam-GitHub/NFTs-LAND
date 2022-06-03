@@ -119,7 +119,7 @@ export async function getServerSideProps(context){
 
    let orderbyid;
         
-        if (id==='thenftslandofficial@gmail.com') {
+        if (id===process.env.NEXT_PUBLIC_ADMIN) {
              orderbyid = await orderCollection.find().toArray();
         } else {
              orderbyid = await orderCollection.find({owner:id}).toArray();

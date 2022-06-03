@@ -127,7 +127,7 @@ router.reload(window.location.pathname)
 
     useEffect( () =>{
         
-        if (localStorage.getItem("email") !== 'thenftslandofficial@gmail.com') {
+        if (localStorage.getItem("email") !== process.env.NEXT_PUBLIC_ADMIN) {
             router.push('/login')
             return;
         }
@@ -180,7 +180,7 @@ router.reload(window.location.pathname)
                       <td> 
                           <span className="nextButton text-center cursor-pointer" onClick={()=>handleShow(user.displayName, user._id)} href="#" ><FontAwesomeIcon icon={faUserPen} /></span> 
                           </td>
-                      {/* {user.email!=='thenftslandofficial@gmail.com' && 
+                      {/* {user.email!==process.env.NEXT_PUBLIC_ADMIN && 
                       <td> 
                           <span className="nextButton cursor-pointer" onClick={()=>handleShow(user.displayName, user._id)} href="#" >Edit</span> 
 

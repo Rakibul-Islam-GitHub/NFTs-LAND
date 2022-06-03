@@ -8,7 +8,7 @@ const transporter = nodemailer.createTransport({
   port: 465,
   host: "smtp.gmail.com",
   auth: {
-    user: 'thenftslotofficial@gmail.com',
+    user: 'thenftslot@gmail.com',
     pass: process.env.EMAIL_PASS,
   },
   secure: true,
@@ -30,7 +30,7 @@ export default function handler(req, res) {
       if(result){
           client.close();
           const mailData = {
-            from: 'thenftslotofficial@gmail.com',
+            from: 'thenftslot@gmail.com',
             to: email,
             subject: `Password reset for NFT SLOT`,
             text: 'Password Reset link',

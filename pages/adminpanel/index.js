@@ -142,7 +142,7 @@ router.reload(window.location.pathname)
 
     useEffect( () =>{
         
-        if (localStorage.getItem("email") !== 'thenftslandofficial@gmail.com') {
+        if (localStorage.getItem("email") !== process.env.NEXT_PUBLIC_ADMIN) {
             router.push('/login')
             return;
         }
@@ -190,7 +190,7 @@ router.reload(window.location.pathname)
                       <td>{order.title}</td>
                       <td>{order.url}</td>
                       <td className='delete-user'>{order.owner}
-                      <br /> {order.owner!=='thenftslandofficial@gmail.com' && <button onClick={()=>handleShow(order.owner)} className='delete-user-btn'>Delete the user</button>}
+                      <br /> {order.owner!==process.env.NEXT_PUBLIC_ADMIN && <button onClick={()=>handleShow(order.owner)} className='delete-user-btn'>Delete the user</button>}
                       </td>
                       <td> <Link onClick={()=> setLoading(true)} href={'/manageslot/edit/'+order._id}>Edit</Link> 
                        <span className="ms-2 " onClick={(e)=> deleteSlot(e,order._id)}><Link href='#'>Delete</Link> </span>

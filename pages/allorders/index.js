@@ -15,7 +15,7 @@ const Allorders = (props) => {
 
     useEffect( () =>{
         
-        if (localStorage.getItem("email") !== 'thenftslandofficial@gmail.com') {
+        if (localStorage.getItem("email") !== process.env.NEXT_PUBLIC_ADMIN) {
             router.push('/logout')
             return;
         }

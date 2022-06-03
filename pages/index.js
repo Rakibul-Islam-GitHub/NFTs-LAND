@@ -18,12 +18,12 @@ export default function Home(props) {
   const [selectedSlotinfo, setSelectedSlotinfo] = useContext(userContext);
   const [loading, setLoading]= useState(false);
   const [assignuser, setAssignuser] = useState(false);
-  const [email, setEmail] = useState('thenftslandofficial@gmail.com');
+  const [email, setEmail] = useState(process.env.NEXT_PUBLIC_ADMIN);
   const router = useRouter()
 
   const handleAssign=()=>{
 setAssignuser(!assignuser)
-setEmail('thenftslandofficial@gmail.com')
+setEmail(process.env.NEXT_PUBLIC_ADMIN)
   }
   const handleProceed= async (e) => {
     console.log(email);
@@ -38,7 +38,7 @@ setEmail('thenftslandofficial@gmail.com')
     setSelectedSlotinfo({});
     setSelectedSlotinfo(selectedSlotDetails);
 
-    if (localStorage.getItem('email')==='thenftslandofficial@gmail.com') {
+    if (localStorage.getItem('email')===process.env.NEXT_PUBLIC_ADMIN) {
       
       try {
         // setLoading(true)
@@ -124,7 +124,7 @@ setEmail('thenftslandofficial@gmail.com')
       <p id='img-size'></p>
     </div>
 
-{loggedInUser.email==='thenftslandofficial@gmail.com' &&
+{loggedInUser.email===process.env.NEXT_PUBLIC_ADMIN &&
  <div className='text-center user-assign'>
  <p className="text-center pt-3">{assignuser? `Don't want to assign?` :'Assign to another user?'} <a onClick={handleAssign} className="signup-text cursor-pointer">click here</a></p>
  {assignuser && <Form.Group className='mb-2' controlId="exampleForm.ControlInput1">

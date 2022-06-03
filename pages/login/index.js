@@ -129,13 +129,13 @@ return;
           if(res.status===200){
             document.getElementById("loginForm").reset();
             
-            {email==='thenftslandofficial@gmail.com' ? setloggedInUser({ email, displayName: res.data.displayName, isAdmin:true}) : 
+            {email===process.env.NEXT_PUBLIC_ADMIN ? setloggedInUser({ email, displayName: res.data.displayName, isAdmin:true}) : 
             setloggedInUser({ email, displayName: res.data.displayName})}
             localStorage.setItem("email", email);
             localStorage.setItem("name", res.data.displayName);
             
             if (router.query.top) {
-              {email==='thenftslandofficial@gmail.com' ? 
+              {email===process.env.NEXT_PUBLIC_ADMIN ? 
               router.push({
                 pathname:'/addslot',
                 query: {...router.query, orderID:'admin'}
