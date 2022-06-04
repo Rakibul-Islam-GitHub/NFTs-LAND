@@ -21,7 +21,7 @@ function handler(req, res) {
         if(password && code) {
 
             const resetcode= makeid(18)
-            console.log(password,code);
+           
             client.connect(async err => {
                 const collection = client.db("nft-slot").collection("users");
                 
@@ -29,7 +29,7 @@ function handler(req, res) {
                 
                 if(result.modifiedCount){
                     client.close();
-                    console.log(result);
+                   
                     res.status(200).json({success: true, status:200});
                 }else{
                     console.log(err);

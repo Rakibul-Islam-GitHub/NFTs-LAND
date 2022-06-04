@@ -21,12 +21,13 @@ export default function Home(props) {
   const [email, setEmail] = useState(process.env.NEXT_PUBLIC_ADMIN);
   const router = useRouter()
 
+
   const handleAssign=()=>{
 setAssignuser(!assignuser)
 setEmail(process.env.NEXT_PUBLIC_ADMIN)
   }
   const handleProceed= async (e) => {
-    console.log(email);
+    
     e.preventDefault();
     const selectedSlotDetails= {
       left: e.currentTarget.getAttribute('x'),
@@ -201,7 +202,7 @@ setEmail(process.env.NEXT_PUBLIC_ADMIN)
   )
 }
 
-export async function getServerSideProps(){
+export async function getStaticProps(){
   const uri = `mongodb+srv://rakibul:${process.env.DB_PASS}@cluster0.gpypc.mongodb.net/nft-slot?retryWrites=true&w=majority`;
   const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
   const db = client.db();
@@ -217,7 +218,7 @@ export async function getServerSideProps(){
       props: {
         orders: JSON.stringify(allorder)
       },
-      // revalidate:10
+      revalidate:10
     }
     
   

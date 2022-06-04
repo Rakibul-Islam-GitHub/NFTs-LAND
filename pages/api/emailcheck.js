@@ -12,7 +12,7 @@ function handler(req, res) {
                 const collection = client.db("nft-slot").collection("users");
                 
                 const result= await collection.findOne({ email})
-                // console.log(result)
+               
                 if(result){
                     client.close();
                     res.status(200).send(result);

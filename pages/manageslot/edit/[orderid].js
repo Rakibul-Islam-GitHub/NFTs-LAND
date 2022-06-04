@@ -34,7 +34,7 @@ const Edit = (props) => {
         const url= e.target.url.value;
         const name= e.target.name.value;
         let img = order.img
-        console.log(title, url);
+       
         const owner= await localStorage.getItem("email");
 
        
@@ -52,7 +52,7 @@ const Edit = (props) => {
     .then( async data => {
     if (data.url) {
         img= data.url;
-        console.log(img);
+      
        await fetch('/api/editslot', {
         method:"post",
         headers: {

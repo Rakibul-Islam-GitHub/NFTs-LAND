@@ -4,7 +4,7 @@ import axios from "axios";
 import Header from "../../components/header/Header";
 import { userContext } from "../_app";
 import Loading from "../../components/loading/Loading";
-import Head  from "next/head";
+
 
 const Signin = () => {
     const router = useRouter();
@@ -49,7 +49,7 @@ const Signin = () => {
         if (validateEmail(email)) {
           setIsError({ emailError: false, password: true });
           
-          console.log(displayName, email);
+       
   
   
           // send user details to db for sign up

@@ -35,7 +35,7 @@ const AdminPanel = (props) => {
     }
     // add new user
     const handleadduser=async (e) => {
-        console.log(name,email,password);
+        
         e.preventDefault()
         if (name ==='') {
             alert('Please fill all the fields',name,email,password)
@@ -90,7 +90,7 @@ const AdminPanel = (props) => {
 const deleteUser=async (e)=>{
     setLoading(true);
 setShow(false);
-    console.log(userid);
+   
     e.preventDefault();
     setLoading(true)
 

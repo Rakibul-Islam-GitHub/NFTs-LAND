@@ -34,7 +34,54 @@ const proceedSpan = document.getElementsByClassName("proceedclose")[0];
 
 
 
+//// make slot by loop 
+const makeSlot=()=>{
+  for (let i = 0; i < 101; i++) {
+    const slotrow= document.createElement("div");
+    slotrow.classList.add('slot-row');
+    for (let j = 1; j <= 69; j++) {
+      const slot = i*69+j;
 
+      const slotdiv= document.createElement('div');
+  slotdiv.classList.add('slot');
+  // slotdiv.classList.add('darkslot');
+  slotdiv.setAttribute('id', 'slot');
+  slotdiv.setAttribute('slot', slot);
+ slotrow.appendChild(slotdiv);
+   document.getElementById('slot-wrapper').appendChild(slotrow);
+
+  
+  slotdiv.addEventListener('dblclick', async (e) =>{
+    takeslot = false;
+    await selectedSlot.pop();
+    await selectedSlot.pop();
+     if (selectedSlot[selectedSlot.length-1].offsetLeft== e.target.offsetLeft && selectedSlot[selectedSlot.length-1].offsetTop== e.target.offsetTop) {
+    
+      alert('Please click outside of the slot box to confirm selection!')
+    }
+    // console.log(selectedSlot[selectedSlot.length-1]);
+    else{
+      e.target.style.removeProperty('background-color');
+     
+      alert('Please click outside of the slot box to confirm selection')
+    
+    }
+  })
+
+  slotdiv.addEventListener('click', (e) =>{
+    takeslot = true;
+    slotdiv.style.setProperty("background-color","orange");
+    // this.classList.add('bg-orange')
+    selectedSlot.push(e.target);
+    
+  })
+      
+    }  // inner loop end
+    
+
+  }
+  
+}
 // ///////////////*****check if  every element is equal in the array ********///////////
 function isRow(_array)
 {
@@ -59,7 +106,7 @@ const validRowStyle=(rowSlotNumber)=>{
 //*******  check for valid column, the selected columns are adjucent or not.**** *////
 const validColumnStyle=(slotNumber)=>{
   let uniqueSlotNumber = slotNumber;
-  console.log(slotNumber);
+ 
   
   uniqueSlotNumber.sort(function(a, b){return a-b});
   const lowest= Number(uniqueSlotNumber[0]);
@@ -145,10 +192,10 @@ const getSlotInfo=(data) => {
   uniqueSlotNumber.sort(function(a, b){return a-b});
   if (isRow(offsetTopArray)) {
     if (validRowStyle(uniqueSlotNumber)) {
-      console.log('valid row', selectedSlot);
+      
       const coordinates = getCoordinates(uniqueSlotNumber);
       const imageSize= getImageHightWidth(uniqueSlotNumber,'row')
-      console.log('coordinate : ', coordinates, 'imagesize : ', imageSize);
+      
       // showing proceed modal
       document.getElementsByClassName('proceedbtn')[0].setAttribute('imghight', imageSize.hight);
       document.getElementsByClassName('proceedbtn')[0].setAttribute('imgwidth', imageSize.width);
@@ -196,70 +243,60 @@ const getSlotInfo=(data) => {
 
 
 
+
+
 window.onload = async function(){
 
   let takeslot=false;
-  for (let i = 0; i < 101; i++) {
-    const slotrow= document.createElement("div");
-    slotrow.classList.add('slot-row');
-    for (let j = 1; j <= 69; j++) {
-      const slot = i*69+j;
+  let slotsdivno =await document.getElementById("slot-wrapper").children.length
+if (slotsdivno<1000) {
+  await makeSlot();
+}
+  // makeSlot()
+//   for (let i = 0; i < 101; i++) {
+//     const slotrow= document.createElement("div");
+//     slotrow.classList.add('slot-row');
+//     for (let j = 1; j <= 69; j++) {
+//       const slot = i*69+j;
 
-      const slotdiv= document.createElement('div');
-  slotdiv.classList.add('slot');
-  // slotdiv.classList.add('darkslot');
-  slotdiv.setAttribute('id', 'slot');
-  slotdiv.setAttribute('slot', slot);
- slotrow.appendChild(slotdiv);
-   document.getElementById('slot-wrapper').appendChild(slotrow);
+//       const slotdiv= document.createElement('div');
+//   slotdiv.classList.add('slot');
+//   // slotdiv.classList.add('darkslot');
+//   slotdiv.setAttribute('id', 'slot');
+//   slotdiv.setAttribute('slot', slot);
+//  slotrow.appendChild(slotdiv);
+//    document.getElementById('slot-wrapper').appendChild(slotrow);
 
   
-  slotdiv.addEventListener('dblclick', async (e) =>{
-    takeslot = false;
-    await selectedSlot.pop();
-    await selectedSlot.pop();
-     if (selectedSlot[selectedSlot.length-1].offsetLeft== e.target.offsetLeft && selectedSlot[selectedSlot.length-1].offsetTop== e.target.offsetTop) {
+//   slotdiv.addEventListener('dblclick', async (e) =>{
+//     takeslot = false;
+//     await selectedSlot.pop();
+//     await selectedSlot.pop();
+//      if (selectedSlot[selectedSlot.length-1].offsetLeft== e.target.offsetLeft && selectedSlot[selectedSlot.length-1].offsetTop== e.target.offsetTop) {
     
-      alert('Please click outside of the slot box to confirm selection!')
-    }
-    // console.log(selectedSlot[selectedSlot.length-1]);
-    else{
-      e.target.style.removeProperty('background-color');
+//       alert('Please click outside of the slot box to confirm selection!')
+//     }
+//     // console.log(selectedSlot[selectedSlot.length-1]);
+//     else{
+//       e.target.style.removeProperty('background-color');
      
-      alert('Please click outside of the slot box to confirm selection')
+//       alert('Please click outside of the slot box to confirm selection')
     
-    }
-  })
+//     }
+//   })
 
-  slotdiv.addEventListener('click', (e) =>{
-    takeslot = true;
-    slotdiv.style.setProperty("background-color","orange");
-    // this.classList.add('bg-orange')
-    selectedSlot.push(e.target);
+//   slotdiv.addEventListener('click', (e) =>{
+//     takeslot = true;
+//     slotdiv.style.setProperty("background-color","orange");
+//     // this.classList.add('bg-orange')
+//     selectedSlot.push(e.target);
     
-  })
+//   })
       
-    }  // inner loop end
+//     }  // inner loop end
     
 
-
-
-    
-
-  // slotdiv.addEventListener('mouseenter', (e) =>{
-  //   if(!takeslot) return;
-  //   console.log('mouseover',e.target);
-  //   slotdiv.style.backgroundColor='orange';
-  // })
-
-  // slotdiv.addEventListener('mousedown', (e) =>{
-  //   console.log('mousedown',e.target);
-  // })
-
-
-  
-
-  }
+//   }
   
   //1st loop end
   
@@ -291,7 +328,8 @@ window.onload = async function(){
   }
 
 
-
+  // let slotsdivno = document.getElementById("slot-wrapper").children.length
+  // console.log(slotsdivno);
   // setTimeout(() => {
   //   document.getElementsByClassName('preloader')[0].style.display = "none";
   // }, 1000);

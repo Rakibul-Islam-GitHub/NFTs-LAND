@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 const { MongoClient, ServerApiVersion } = require('mongodb');
-import Link from "next/link";
+
 import { useRouter } from "next/router";
 import axios from "axios";
 import Header from '../../components/header/Header';
 import Loading from '../../components/loading/Loading';
-import moment from 'moment';
+
 import {Modal,Form, Button} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPen } from "@fortawesome/free-solid-svg-icons"
@@ -99,7 +99,7 @@ return;
 
 
     const deleteUser=async (e,userid)=>{
-        console.log(userid);
+        
         e.preventDefault();
         setLoading(true)
 

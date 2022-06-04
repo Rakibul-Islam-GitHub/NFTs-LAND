@@ -58,7 +58,10 @@ const AddSlot = () => {
     .then( async data => {
     if (data.url) {
         img= data.url;
-        console.log(img);
+        if (url.substr(0, 'http://'.length) !== 'http://')
+{
+    url = 'http://' + url;
+}
        await fetch('/api/addslot', {
         method:"post",
         headers: {

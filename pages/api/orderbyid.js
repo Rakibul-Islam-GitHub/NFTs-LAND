@@ -5,18 +5,18 @@ function handler(req, res) {
     if (req.method === 'GET') {
         
         const {id} = req.query;
-        console.log(id);
+       
         
         if(id) {
 
-            console.log('from api', id);
+            
 
             client.connect(async err => {
                 const collection2 = client.db("nft-slot").collection("payments");
                
                const result= await collection2.find({ })
 
-                    console.log(result);
+                    
                     if(result){
                         client.close();
                         

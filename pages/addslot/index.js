@@ -15,7 +15,7 @@ const AddSlot = () => {
     const [image, setImage]= useState()
     const [loading, setLoading] = useState(false);
     const slotDetails= router.query || selectedSlotinfo;
-    console.log(slotDetails);
+   
 
    useEffect(() =>{
     if (localStorage.getItem("email") == (null||'null')) {

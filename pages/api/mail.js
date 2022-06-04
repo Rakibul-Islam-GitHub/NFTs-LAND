@@ -44,7 +44,7 @@ export default function handler(req, res) {
             }
               
             else{
-              console.log(info)
+              
               res.status(200).json({success: true});
             }
               

@@ -5,7 +5,7 @@ function handler(req, res) {
     if (req.method === 'POST') {
 
         const {title, url, img,  id} = req.body
-        console.log(title, url, img,  id);
+       
         
         if(title && url && img && id) {
 

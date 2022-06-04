@@ -39,7 +39,7 @@ let unitPrice=10;
   useEffect(()=>{
 
   setSelectedSlotinfo(router.query);
-    console.log('from checkout', selectedSlotinfo);
+    
     if (router.query.top) {
       setIsSlotSelected(true);
       

@@ -75,7 +75,7 @@ const Login = () => {
         if (validateEmail(email)) {
           setIsError({ emailError: false, password: true });
           
-          console.log(displayName, email);
+         
   
   
           // send user details to db for sign up

@@ -8,7 +8,7 @@ function handler(req, res) {
         
         if(orderID && payerAddress && payerEmail && user && amount && paymentAt) {
 
-            console.log('from api', orderID);
+           
 
             client.connect(async err => {
                 const collection = client.db("nft-slot").collection("payments");
