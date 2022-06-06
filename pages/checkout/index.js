@@ -60,7 +60,7 @@ let unitPrice=10;
     const addPaypalScript = () => {
       const script = document.createElement("script");
       script.type = "text/javascript";
-      script.src = `https://www.paypal.com/sdk/js?client-id=AZ7j3w64jr4pRYB6lhuAwBfgyoL8aJ2yZ6Z1Zsk1oNHvtGHDvlnaYF7b-YgjP7e-4FkvclLEj4CnF01s`;
+      script.src = `https://www.paypal.com/sdk/js?client-id=AUemDNueGuWwFHFfkZWtRHd27dzm5pO6XzFzoxozPnwL5-dkBI2sibnXIXLae7JNDMCS3xstTtr2_Agc`;
       script.async = true;
 
       script.onload = () => setIsScriptLoaded(true);
